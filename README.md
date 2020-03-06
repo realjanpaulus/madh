@@ -10,7 +10,7 @@ Um die Tutorials nutzen zu können, gibt es zwei Möglichkeiten: Die Offline-Nut
 
 ### Download
 
-Über Button <img src="src/images/clone_download.png" alt="clone_download-icon" width="25" height="17"/> in der rechten oberen Ecke dieser Seite kann das Projekt geklont oder gedownloadet werden ("Download ZIP"). Sollte es gedownloadet werden, muss das ZIP-Archiv entpackt werden. Mit dem Terminal muss in das entsprechende Verzeichnis navigiert werden (Tutorial dafür: TODO).
+Über Button <img src="src/images/clone_download.png" alt="clone_download-icon" width="30" height="17"/> in der rechten oberen Ecke dieser Seite kann das Projekt geklont oder gedownloadet werden ("Download ZIP"). Sollte es gedownloadet werden, muss das ZIP-Archiv entpackt werden. Mit dem Terminal muss in das entsprechende Verzeichnis navigiert werden (Tutorial dafür: TODO).
 
 
 ### Installation des gedownloadeten Projekts
