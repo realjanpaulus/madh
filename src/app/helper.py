@@ -3,6 +3,7 @@ from IPython.display import display
 from IPython.display import clear_output
 import ipywidgets as widgets
 import sys
+f
 
 
 def css_styling():
@@ -15,6 +16,9 @@ def css_styling():
 # Quiz helper functions #
 # ===================== #
 
+def createquiz(description: str,
+			   options):
+	return 1
 
 
 
