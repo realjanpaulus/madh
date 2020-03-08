@@ -1,0 +1,42 @@
+{
+	"cquiz_1_1": {
+		"description": "Was ist $1+2$?",
+		"options": {
+			"12": "Der Plus-Operator funktioniert so nicht.", 
+	 		"3": "$1+2$ ist tatsächlich 3.", 
+	  		"0.5": "Der Plus-Operator funktioniert nicht so: $\\frac{1}{2}$.", 
+	  		"Keine der anderen Antworten": "Es gibt eine richtige Antwort."
+	  	},
+		"correct_answer": "3"
+	},
+	"cquiz_1_2": {
+		"description": "Was ist $3+4$?",
+		"options": {
+			"34": "Der Plus-Operator funktioniert so nicht.", 
+	 		"7": "$3+4$ ist tatsächlich 7.", 
+	  		"0.75": "Der Plus-Operator funktioniert nicht so: $\\frac{3}{4}$.", 
+	  		"Keine der anderen Antworten": "Es gibt eine richtige Antwort."
+	  	},
+		"correct_answer": "7"	
+	},
+	"cquiz_1_3": {
+		"description": "Welche Farbe kommt dabei heraus, wenn man blau und gelb mischt?",
+		"options": {
+			"Blelb": "Bitte den Kindergarten nochmal wiederholen.",
+			"Rot": "Nehmen Sie sich bitte die beiden Wasserfarben und probieren Sie es selbst aus.",
+			"Blau mit gelben Punkten": "Wissen Sie was 'mischen' bedeutet?",
+			"Grün": ""
+		},
+		"correct_answer": "Grün"
+	},
+	"cquiz_1_4": {
+		"description": "Wofür steht die Abkürzung 'DH'?",
+		"options": {
+			"Der Hund": "Wieso braucht man dafür eine Abkürzung?",
+			"David Hasselhoff": "Nur für Hasselhoff-Fans.",
+			"Datenhunger": "Fast.",
+			"Digital Humanities": "Zu deutsch: 'Digitale Geisteswissenschaften'."
+		},
+		"correct_answer": "Digital Humanities"
+	}
+}

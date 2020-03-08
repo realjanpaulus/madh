@@ -1,8 +1,0 @@
-{
-	"cquiz_1_1": {"description": "Was ist $1+2$?",
-				  "options": {"12": "Der Plus-Operator funktioniert so nicht.", 
-				  			  "3": "$1+2$ ist tatsächlich 3.", 
-				  			  "0.5": "Der Plus-Operator funktioniert nicht so: $\\frac{1}{2}$.", 
-				  			  "Keine der anderen Antworten": "Es gibt eine richtige Antwort."},
-				  "correct_answer": "3"}
-}
