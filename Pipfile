@@ -9,4 +9,4 @@ verify_ssl = true
 ipywidgets = "*"
 typing = "*"
 json = "*"
-
+ipython = "*"
