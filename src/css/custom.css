@@ -1,0 +1,57 @@
+<style>
+
+/* colors
+
+- very pale blue: #e5f6ff (= note block)
+
+- dark lime green: #28a428 (= right answer of quiz)
+
+- moderate red: #d23838 (= wrong answer of quiz)
+- light grayish red: #fcf2f2 (= warning block)
+
+
+*/
+
+
+div.digression {    
+    background-color: #e5f6ff;
+    border-color: #a1c6de;
+    border-left: 5px solid #a1c6de;
+    border-right: 5px solid #a1c6de;
+    border-top: 5px solid #a1c6de;
+    border-bottom: 5px solid #a1c6de;
+    padding: 0.5em;
+}
+
+div.note {    
+    background-color: #e5f6ff;
+    border-color: #99b898;
+    border-left: 5px solid #99b898;
+    border-right: 5px solid #99b898;
+    border-top: 5px solid #99b898;
+    border-bottom: 5px solid #99b898;
+    padding: 0.5em;
+}
+
+div.warn {    
+    background-color: #e5f6ff;
+    border-color: #cc1a32;
+    border-left: 5px solid #cc1a32;
+    border-right: 5px solid #cc1a32;
+    border-top: 5px solid #cc1a32;
+    border-bottom: 5px solid #cc1a32;
+    padding: 0.5em;
+}
+
+table {
+    float: left;
+    border-style: 1px solid black;
+    border: 1px  black solid !important;
+    color: black !important;
+}
+
+th, td {
+    border: 1px  black solid !important;
+    color: black !important;
+}
+ </style>

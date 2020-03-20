@@ -10,6 +10,7 @@ from typing import Dict, List, Optional, Tuple, Union
 # grandparent path to ensure correct location of files
 path = Path().cwd().parents[1]
 
+
 # == Table of contents == #
 # - Quiz helper functions #
 # - Quiz functions        #
@@ -161,7 +162,7 @@ def create_quiz(quiz_name: str,
 	
 		with feedback_out:
 			clear_output()
-			check.style.button_color = "#e7e7e7"
+			check.style.button_color = "#d9d9d9"
 			if quiz_dic:
 				write_tmp(s, int(quiz_number), description, numbered_answers[selected_option], subject)
 			else:
@@ -170,7 +171,7 @@ def create_quiz(quiz_name: str,
 	feedback_out = widgets.Output()
 
 	check = widgets.Button(description="Abschicken")
-	check.style.button_color = "#b3b3b3"
+	check.style.button_color = "#a6a6a6"
 	
 	check.on_click(check_selection)
 	
@@ -215,7 +216,6 @@ def start_quiz(quiz_number: int,
 			right_answers = 0
 
 			for k, v in answers.items():
-				display(Markdown("---\n"))
 				display(Markdown(f"{k}) {v['description']}"))
 				display(Markdown(f"Ausgewählte Antwort: <span style='font-weight: bold'>{v['question']}</span> ")) 
 				display(Markdown(f"{v['answer']}"))
