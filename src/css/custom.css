@@ -1,6 +1,6 @@
 <style>
 
-/* colors
+/* colors (outdated)
 
 - very pale blue: #e5f6ff (= note block)
 
@@ -8,7 +8,6 @@
 
 - moderate red: #d23838 (= wrong answer of quiz)
 - light grayish red: #fcf2f2 (= warning block)
-
 
 */
 
@@ -44,7 +43,6 @@ div.task {
 }
 
 
-
 div.warn {    
     background-color: #e5f6ff;
     border-color: #cc1a32;
@@ -57,13 +55,30 @@ div.warn {
 
 table {
     float: left;
-    border-style: 1px solid black;
-    border: 1px  black solid !important;
+    border-style: 1.5px solid black;
+    border: 1.5px  black solid !important;
     color: black !important;
 }
 
 th, td {
-    border: 1px  black solid !important;
+    text-align: center;
+    vertical-align: middle;
+    border: 1.5px  black solid !important;
     color: black !important;
 }
+
+#centertable td
+{
+    text-align: center; 
+    vertical-align: middle;
+}
+
+#centertable th
+{
+    text-align: center; 
+    vertical-align: middle;
+}
+
+
+
  </style>
