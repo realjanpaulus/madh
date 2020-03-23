@@ -1,1 +1,1 @@
-{"1": {"answer": "<span style='font-weight: bold; color: #28a428; background-color: #ffffff;'>Richtig.</span> $1+2$ ist tats\u00e4chlich 3.", "description": "Was ist $1+2$?", "question": "3"}, "1": {"answer": "<span style='font-weight: bold; color: #d23838; background-color: #ffffff;'>Falsch.</span> Der Plus-Operator funktioniert nicht so: $\\frac{1}{2}$.", "description": "Was ist $1+2$?", "question": "0.5"}}
+{}
