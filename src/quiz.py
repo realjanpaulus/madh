@@ -139,7 +139,8 @@ def create_quiz(quiz_name: str,
 	# radio_options: ("Option1", 0), ("Option2", 1), ... #
 	radio_options = widgets.RadioButtons(options = options_numbers,
 										 description = '',
-										 disabled = False)
+										 disabled = False,
+										 layout={'width': 'max-content'})
 
 	# numbered_answers: {0: "answer1", 1: "answer2", ...}
 	numbered_answers = {v: k for k, v in dict(radio_options.options).items()}
