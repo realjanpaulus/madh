@@ -42,7 +42,55 @@ div.task {
     padding: 0.5em;
 }
 
+/* for simple answer / solution*/
+input#show, input#hide {
+    display:none;
+}
 
+label#answers {
+  border: 1px solid black;
+  padding: 1px;
+}
+
+label#show_answer {
+  background-color: #008CBA;  /* Blue */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+label#hide_answer {
+  background-color: #b2b2b2; /* Grey */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 1px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+
+
+
+span#content {
+    display:none;
+}
+input#show:checked ~ span#content {
+  display:block;
+}
+
+input#hide:checked ~ span#content {
+    display:none;
+}
+
+/* special fields*/
 div.warn {    
     background-color: #e5f6ff;
     border-color: #cc1a32;
