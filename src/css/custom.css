@@ -1,16 +1,7 @@
 <style>
 
-/* colors (outdated)
 
-- very pale blue: #e5f6ff (= note block)
-
-- dark lime green: #28a428 (= right answer of quiz)
-
-- moderate red: #d23838 (= wrong answer of quiz)
-- light grayish red: #fcf2f2 (= warning block)
-
-*/
-
+/* special fields*/
 
 div.digression {    
     background-color: #e5f6ff;
@@ -39,6 +30,16 @@ div.task {
     border-right: 5px solid #99b898;
     border-top: 5px solid #99b898;
     border-bottom: 5px solid #99b898;
+    padding: 0.5em;
+}
+
+div.warn {    
+    background-color: #e5f6ff;
+    border-color: #cc1a32;
+    border-left: 5px solid #cc1a32;
+    border-right: 5px solid #cc1a32;
+    border-top: 5px solid #cc1a32;
+    border-bottom: 5px solid #cc1a32;
     padding: 0.5em;
 }
 
@@ -78,7 +79,6 @@ label#hide_answer {
 
 
 
-
 span#content {
     display:none;
 }
@@ -90,15 +90,25 @@ input#hide:checked ~ span#content {
     display:none;
 }
 
-/* special fields*/
-div.warn {    
-    background-color: #e5f6ff;
-    border-color: #cc1a32;
-    border-left: 5px solid #cc1a32;
-    border-right: 5px solid #cc1a32;
-    border-top: 5px solid #cc1a32;
-    border-bottom: 5px solid #cc1a32;
-    padding: 0.5em;
+
+/* Tables & side by side images */
+.imgcolumn {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+
+.imgrow::after {
+  content: "";
+  clear: both;
+  display: table;
+} 
+
+figure figcaption {
+  margin: 3px;
+  text-align: center;
+  font-weight: bold;
 }
 
 table {
@@ -126,7 +136,6 @@ th, td {
     text-align: center; 
     vertical-align: middle;
 }
-
 
 
  </style>

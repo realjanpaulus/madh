@@ -13,6 +13,10 @@ from matplotlib.ticker import MaxNLocator
 def constant_function(c, x):
 	return c
 
+
+def linear_function(m, b, x):
+	return m*x + b
+
 # ================ #
 # helper functions #
 # ================ #
@@ -42,37 +46,34 @@ def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 		plt.plot(x, y)
 		plt.grid()
 		plt.show()
+	elif function == "linear" and len(kwargs) > 1:
+		x = np.linspace(space[0],space[1],num=100)
+		y = linear_function(kwargs["v1"], kwargs["v2"], x)
+		fig = plt.figure()
+		ax = fig.add_subplot(1, 1, 1)
+		coordinate_system(ax, space[0],space[1]) 
+		plt.plot(x, y)
+		plt.grid()
+		plt.show()
 		
 def get_slider(value_names = ["x", "w"], 
 			   space = (-10.0, 10.0), 
 			   slider_step = 1.0):
+	""" Returns a slider element in a list for 
+		every value in value_names.
+	"""
 	
-	if len(value_names) == 1:
-		sliders = [widgets.FloatSlider(value=0, 
-									   min=space[0], 
-									   max=space[1],
-									   step=slider_step,
-									   description=f'{value_names[0]}',
-									   disabled=False,
-									   continuous_update=False,
-									   orientation='horizontal',
-									   readout=True,
-									   readout_format='.1f',) 
-				   for i in range(len(value_names))]
-	else:
-		sliders = [widgets.FloatSlider(value=0, 
-									   min=space[0], 
-									   max=space[1],
-									   step=slider_step,
-									   description=f'{value_names[i]}',
-									   disabled=False,
-									   continuous_update=False,
-									   orientation='horizontal',
-									   readout=True,
-									   readout_format='.1f',) 
-				   for i in range(len(value_names))]
-		
-	return sliders
+	return [widgets.FloatSlider(value=0, 
+								   min=space[0], 
+								   max=space[1],
+								   step=slider_step,
+								   description=f'{value_names[i]}',
+								   disabled=False,
+								   continuous_update=False,
+								   orientation='horizontal',
+								   readout=True,
+								   readout_format='.1f',) 
+			   for i in range(len(value_names))]
 
 
 # ============ #
@@ -83,13 +84,16 @@ def plt_function(function = "constant",
 				 space=(-10.0, 10.0), 
 				 slider_step = 1.0):
 	""" Plot function by function name. """
-	available_functions = ["constant"]
+	available_functions = ["constant", "linear"]
 	if function == "constant":
 		value_names = ["c", "x"]
+		sliders = get_slider(value_names, space=space, slider_step=slider_step)
+	elif function == "linear":
+		value_names = ["m", "b"]
 		sliders = get_slider(value_names, space=space, slider_step=slider_step)
 	
 	if function in available_functions:
 		kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
 		interact(get_function, function=fixed(function), space=fixed(space), **kwargs)
 	else:
-		print(f"Function '{function}' is not known.")
+		print(f"Function '{function}' is unknown.")

@@ -135,13 +135,14 @@ def create_quiz(quiz_name: str,
 	correct_answer_index = options.index(correct_answer)
 
 	## build clickable radio buttons 
+	
 	options_numbers = [(element, i) for i, element in enumerate(options)]
 	# radio_options: ("Option1", 0), ("Option2", 1), ... #
 	radio_options = widgets.RadioButtons(options = options_numbers,
 										 description = '',
 										 disabled = False,
 										 layout={'width': 'max-content'})
-
+	
 	# numbered_answers: {0: "answer1", 1: "answer2", ...}
 	numbered_answers = {v: k for k, v in dict(radio_options.options).items()}
 
@@ -175,12 +176,11 @@ def create_quiz(quiz_name: str,
 	check.style.button_color = "#a6a6a6"
 	
 	check.on_click(check_selection)
-	
 	return widgets.VBox([description_out, radio_options, check, feedback_out])
 
 
 
-# TODO
+
 def start_quiz(quiz_number: int,
 			   subject: Optional[str] = "algebra"):
 	""" Collects and displays all quizzes by 
@@ -194,57 +194,62 @@ def start_quiz(quiz_number: int,
 	elif subject == "calculus":
 		filename = f"calculus_quiz{quiz_number}.json"
 	clear_json(subject)
-	with open(json_files[filename], 'r') as f:
-		quizzes_dic = json.load(f)
-
-	question_count = 0
-
-	for k, v in quizzes_dic.items():
-		display(create_quiz(k, subject=subject, quiz_dic=v))
-		question_count += 1
-
-	
-	start = widgets.Button(description="Ausgewählte Antworten überprüfen", 
-						   layout=widgets.Layout(width="40%"))
-	output = widgets.Output()
+	try:
+		with open(json_files[filename], 'r') as f:
+			quizzes_dic = json.load(f)
 	
 
-	def show_answers(b):
-		with output:
-			clear_output()
-			start.style.button_color = "#e7e7e7"
-			answers = load_tmp(subject)
-			right_answers = 0
+		question_count = 0
 
-			for k, v in answers.items():
-				display(Markdown(f"{k}) {v['description']}"))
-				display(Markdown(f"Ausgewählte Antwort: <span style='font-weight: bold'>{v['question']}</span> ")) 
-				display(Markdown(f"{v['answer']}"))
-				if "Richtig." in v["answer"]:
-					right_answers += 1
+		for k, v in quizzes_dic.items():
+			display(create_quiz(k, subject=subject, quiz_dic=v))
+			question_count += 1
 
-			if len(answers) < question_count:
-				if (question_count - len(answers)) == 1:
-					display(Markdown("---\n" + "---\n" + f"<span style='font-weight: bold'>{right_answers}</span> von <span style='font-weight: bold'>{len(answers)}</span> beantworteten Fragen waren richtig. Sie haben <span style='font-weight: bold'>{question_count - len(answers)}</span> Frage nicht beantwortet."))
+		
+		start = widgets.Button(description="Ausgewählte Antworten überprüfen", 
+							   layout=widgets.Layout(width="40%"))
+		output = widgets.Output()
+		
+
+		def show_answers(b):
+			with output:
+				clear_output()
+				start.style.button_color = "#e7e7e7"
+				answers = load_tmp(subject)
+				right_answers = 0
+
+				for k, v in answers.items():
+					display(Markdown(f"{k}) {v['description']}"))
+					display(Markdown(f"Ausgewählte Antwort: <span style='font-weight: bold'>{v['question']}</span> ")) 
+					display(Markdown(f"{v['answer']}"))
+					if "Richtig." in v["answer"]:
+						right_answers += 1
+
+				if len(answers) < question_count:
+					if (question_count - len(answers)) == 1:
+						display(Markdown("---\n" + "---\n" + f"<span style='font-weight: bold'>{right_answers}</span> von <span style='font-weight: bold'>{len(answers)}</span> beantworteten Fragen waren richtig. Sie haben <span style='font-weight: bold'>{question_count - len(answers)}</span> Frage nicht beantwortet."))
+					else:
+						display(Markdown("---\n" + "---\n" + f"<span style='font-weight: bold'>{right_answers}</span> von <span style='font-weight: bold'>{len(answers)}</span> beantworteten Fragen waren richtig. Sie haben <span style='font-weight: bold'>{question_count - len(answers)}</span> Fragen nicht beantwortet."))
 				else:
-					display(Markdown("---\n" + "---\n" + f"<span style='font-weight: bold'>{right_answers}</span> von <span style='font-weight: bold'>{len(answers)}</span> beantworteten Fragen waren richtig. Sie haben <span style='font-weight: bold'>{question_count - len(answers)}</span> Fragen nicht beantwortet."))
-			else:
-				display(Markdown("---\n" + "---\n" + f"<span style='font-weight: bold'>{right_answers}</span> von <span style='font-weight: bold'>{len(answers)}</span> beantworteten Fragen waren richtig."))
+					display(Markdown("---\n" + "---\n" + f"<span style='font-weight: bold'>{right_answers}</span> von <span style='font-weight: bold'>{len(answers)}</span> beantworteten Fragen waren richtig."))
 
-			if right_answers == len(answers):
-				display(Markdown("Glückwunsch! Sie haben alle beantworteten Fragen richtig beantwortet."))
-			elif right_answers == 0:
-				display(Markdown(f"Sie haben keine der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen und ggbf. das Kapitel noch einmal durchzuarbeiten."))
-			elif right_answers/len(answers) < 0.75:
-				display(Markdown(f"Sie haben nur {formatNumber((right_answers/len(answers))*100)}% der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen."))
-			elif right_answers/len(answers) >= 0.75:
-				display(Markdown(f"Sie haben {formatNumber((right_answers/len(answers))*100)}% der beantworteten Fragen richtig beantwortet. Sie können gerne fortfahren oder aber versuchen, alle Fragen richtig zu beantworten."))
+				if right_answers == len(answers):
+					display(Markdown("Glückwunsch! Sie haben alle beantworteten Fragen richtig beantwortet."))
+				elif right_answers == 0:
+					display(Markdown(f"Sie haben keine der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen und ggbf. das Kapitel noch einmal durchzuarbeiten."))
+				elif right_answers/len(answers) < 0.75:
+					display(Markdown(f"Sie haben nur {formatNumber((right_answers/len(answers))*100)}% der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen."))
+				elif right_answers/len(answers) >= 0.75:
+					display(Markdown(f"Sie haben {formatNumber((right_answers/len(answers))*100)}% der beantworteten Fragen richtig beantwortet. Sie können gerne fortfahren oder aber versuchen, alle Fragen richtig zu beantworten."))
 
 
-	
-	start.on_click(show_answers)
-	start.style.button_color = "#b3b3b3"
-	display(Markdown("---\n---\n"))
-	display(widgets.VBox([start, output]))
+		
+		start.on_click(show_answers)
+		start.style.button_color = "#b3b3b3"
+		display(Markdown("---\n---\n"))
+		display(widgets.VBox([start, output]))
 
+
+	except KeyError:
+		display(Markdown(f"Das Quiz **{filename}** existiert nicht. Überprüfen Sie die Quiz-Nummer oder den Dateinamen."))
 
