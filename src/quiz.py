@@ -173,7 +173,7 @@ def create_quiz(quiz_name: str,
 	feedback_out = widgets.Output()
 
 	check = widgets.Button(description="Abschicken")
-	check.style.button_color = "#a6a6a6"
+	check.style.button_color = "#85a3e0" #"#a6a6a6"
 	
 	check.on_click(check_selection)
 	return widgets.VBox([description_out, radio_options, check, feedback_out])
@@ -245,7 +245,7 @@ def start_quiz(quiz_number: int,
 
 		
 		start.on_click(show_answers)
-		start.style.button_color = "#b3b3b3"
+		start.style.button_color = "#3973ac"#"#b3b3b3"
 		display(Markdown("---\n---\n"))
 		display(widgets.VBox([start, output]))
 
