@@ -6,6 +6,8 @@
 
 Um die Tutorials nutzen zu können, gibt es zwei Möglichkeiten: Die Offline-Nutzung (empfohlen) und die Online-Nutzung mithilfe von **Binder**. Die folgende Installationsanleitung bezieht sich nur auf die Offline-Nutzung. Für die Online-Nutzung muss lediglich auf das [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/realjanpaulus/madh/master) Logo geklickt werden. Sollte diese Option genutzt werden, überspringen Sie den nächsten Schritt "Installationsanleitung (Anfänger)".
 
+Offline-Nutzung mit Jupyter Lab wird nicht unterstützt. Bei der Benutzung von Jupyter Lab können Javascript Befehle wie in Quizzen nicht dargestellt werden. Für die Verwendung mit Jupyter Lab muss eine Erweiterung installiert werden (siehe <a href="https://stackoverflow.com/questions/49542417/how-to-get-ipywidgets-working-in-jupyter-lab">Stackoverflow</a>).
+
 ## Installationsanleitung (Anfänger)
 
 ### Download
