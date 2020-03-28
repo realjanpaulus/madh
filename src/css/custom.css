@@ -92,9 +92,18 @@ input#hide:checked ~ span#content {
 
 
 /* Tables & side by side images */
-.imgcolumn {
+
+/* 3 images side by side */
+.imgcolumn3 {
   float: left;
   width: 33.33%;
+  padding: 5px;
+}
+
+/* 4 images side by side */
+.imgcolumn4 {
+  float: left;
+  width: 25.0%;
   padding: 5px;
 }
 

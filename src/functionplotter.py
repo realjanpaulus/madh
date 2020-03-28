@@ -17,6 +17,9 @@ def constant_function(c, x):
 def linear_function(m, b, x):
 	return m*x + b
 
+def quadratic_function(a, b, c, x):
+	return a*(x**2) + b * x + c
+
 # ================ #
 # helper functions #
 # ================ #
@@ -36,25 +39,22 @@ def coordinate_system(ax, neg_dim, pos_dim):
 
 
 def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
+	""" Computes a function given by name."""
+	x = np.linspace(space[0],space[1],num=100)
 	if function == "constant" and len(kwargs) > 0:
-		x = np.linspace(space[0],space[1],num=100)
 		
 		y = constant_function(kwargs["v1"], x)
-		fig = plt.figure()
-		ax = fig.add_subplot(1, 1, 1)
-		coordinate_system(ax, space[0],space[1]) 
-		plt.plot(x, y)
-		plt.grid()
-		plt.show()
 	elif function == "linear" and len(kwargs) > 1:
-		x = np.linspace(space[0],space[1],num=100)
 		y = linear_function(kwargs["v1"], kwargs["v2"], x)
-		fig = plt.figure()
-		ax = fig.add_subplot(1, 1, 1)
-		coordinate_system(ax, space[0],space[1]) 
-		plt.plot(x, y)
-		plt.grid()
-		plt.show()
+	elif function == "quadratic" and len(kwargs) > 2:
+		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+
+	fig = plt.figure()
+	ax = fig.add_subplot(1, 1, 1)
+	coordinate_system(ax, space[0],space[1]) 
+	plt.plot(x, y)
+	plt.grid()
+	plt.show()
 		
 def get_slider(value_names = ["x", "w"], 
 			   space = (-10.0, 10.0), 
@@ -84,12 +84,15 @@ def plt_function(function = "constant",
 				 space=(-10.0, 10.0), 
 				 slider_step = 1.0):
 	""" Plot function by function name. """
-	available_functions = ["constant", "linear"]
+	available_functions = ["constant", "linear", "quadratic"]
 	if function == "constant":
 		value_names = ["c", "x"]
 		sliders = get_slider(value_names, space=space, slider_step=slider_step)
 	elif function == "linear":
 		value_names = ["m", "b"]
+		sliders = get_slider(value_names, space=space, slider_step=slider_step)
+	elif function == "quadratic":
+		value_names = ["a", "b", "c"]
 		sliders = get_slider(value_names, space=space, slider_step=slider_step)
 	
 	if function in available_functions:
