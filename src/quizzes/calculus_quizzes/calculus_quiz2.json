@@ -1,0 +1,62 @@
+{
+	"cquiz_2_1": {
+		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph A aus Abbildung 1.",
+		"options": {
+			"f(x) = 2x + 6" : "Die Steigung wurde leider falsch berechnet.", 
+	 		"f(x) = 3x + 6" : "", 
+	  		"f(x) = 1/3x + 6" : "Haben Sie die Steigung richtig berechnet? Die y-Koordinaten stehen im Zähler und die x-Koordinaten im Nenner.", 
+	  		"f(x) = 2x - 6" : "Schauen Sie sich noch einmal den y-Achsen-Abschnitt an."
+	  	},
+		"correct_answer": "f(x) = 3x + 6"
+	},
+	"cquiz_2_2": {
+		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph B aus Abbildung 2.",
+		"options": {
+			"f(x) = 1x - 5" : "Beachten Sie, dass der Graph fällt! Die Steigung muss also negativ sein.", 
+	 		"f(x) = -1x - 5" : "", 
+	  		"f(x) = -5x - 1" : "Schauen Sie noch einmal nach, wo sich die Steigung in der Funktionsgleichung befindet.", 
+	  		"f(x) = -1x + 5" : "Schauen Sie noch einmal nach, wo der Graph die y-Achse schneidet!"
+	  	},
+		"correct_answer": "f(x) = -1x - 5"
+	},
+	"cquiz_2_3": {
+		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph C aus Abbildung 3.",
+		"options": {
+			"f(x) = 3x" : "Haben Sie die Steigung richtig berechnet?", 
+	 		"f(x) = 3x + 1" : "Schauen Sie noch einmal nach, wo der Graph die y-Achse schneidet!", 
+	  		"f(x) = 3x - 1" : "Schauen Sie noch einmal nach, wo der Graph die y-Achse schneidet!", 
+	  		"f(x) = 4x" : "Der Graph schneidet die y-Achse bei 0, deshalb steht hier eigentlich: f(x) = 4x + 0."
+	  	},
+		"correct_answer": "f(x) = 4x"
+	},
+	"cquiz_2_4": {
+		"description": "Welcher der Graphen in Abbildung 4 wird durch die Funktion $f(x) = -2x - 3$ beschrieben?",
+		"options": {
+			"Der lilane Graph" : "", 
+	 		"Der orange Graph" : "Berechnen Sie noch einmal die Steigung.", 
+	  		"Der rote Graph" : "Überprüfen Sie den y-Achsen-Abschnitt in der gegebenen Funktion.", 
+	  		"Der grüne Graph" : "Haben Sie die Steigung und den y-Achsen-Abschnitt vertauscht?"
+	  	},
+		"correct_answer": "Der lilane Graph"
+	},
+	"cquiz_2_5": {
+		"description": "Welcher der Graphen in Abbildung 5 wird durch die Funktion $f(x) = 6x + 2$ beschrieben?",
+		"options": {
+			"Der lilane Graph" : "Haben Sie die Steigung und den y-Achsen-Abschnitt vertauscht?", 
+	 		"Der orange Graph" : "", 
+	  		"Der rote Graph" : "Berechnen Sie noch einmal die Steigung.", 
+	  		"Der grüne Graph" : ""
+	  	},
+		"correct_answer": "Der orange Graph"
+	},
+	"cquiz_2_6": {
+		"description": "Welcher der Graphen in Abbildung 6 wird durch die Funktion $f(x) = 2x$ beschrieben?",
+		"options": {
+			"Der lilane Graph" : "", 
+	 		"Der orange Graph" : "Berechnen Sie noch einmal die Steigung.", 
+	  		"Der rote Graph" : "Berechnen Sie noch einmal die Steigung.", 
+	  		"Der grüne Graph" : "Berechnen Sie noch einmal die Steigung und beachten Sie das Vorzeichen."
+	  	},
+		"correct_answer": "Der lilane Graph"
+	}
+}

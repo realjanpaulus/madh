@@ -1,0 +1,32 @@
+{
+	"cquiz_1_1": {
+		"description": "Was unterscheidet eine Funktion von einer Zuordnung?",
+		"options": {
+			"Nichts, sie beschreiben eigentlich dasselbe." : "Es gibt einen Unterschied.", 
+	 		"Eine Funktion ist eine eindeutige Zuordnung, bei der jedem x-Wert genau ein y-Wert zugeordnet wird." : "", 
+	  		"Eine Zuordnung ist eine eindeutige Funktion, bei der jedem x-Wert genau ein y-Wert zugeordnet wird." : "", 
+	  		"Eine Zuordnung ist eine eindeutige Funktion, bei der jedem y-Wert genau ein x-Wert zugeordnet wird." : ""
+	  	},
+		"correct_answer": "Eine Funktion ist eine eindeutige Zuordnung, bei der jedem x-Wert genau ein y-Wert zugeordnet wird."
+	},
+	"cquiz_1_2": {
+		"description": "Zu welchen Mengen gehören die x- und y-Werte? Wieviel Elemente werden der Wertmenge zugeordnet?",
+		"options": {
+			"x-Werte: Definitionsmenge, y-Werte: Wertemenge. Jedem Element der Definitionsmenge wird genau ein Element der Wertemenge zugeordnet.": "",
+			"x-Werte: Wertemenge, y-Werte: Definitionsmenge. Jedem Element der Definitionsmenge wird genau ein Element der Wertemenge zugeordnet.": "",
+			"x-Werte: Wertemenge, y-Werte: Definitionsmenge. Jedem Element der Definitionsmenge werden mehrere Elemente der Wertemenge zugeordnet.": "",
+			"x-Werte: Definitionsmenge, y-Werte: Wertemenge. Jedem Element der Definitionsmenge werden mehrere Elemente der Wertemenge zugeordnet.": ""
+		},
+		"correct_answer": "x-Werte: Definitionsmenge, y-Werte: Wertemenge. Jedem Element der Definitionsmenge wird genau ein Element der Wertemenge zugeordnet."
+	},
+	"cquiz_1_3": {
+		"description": "Ab wann sind zwei Funktionen identisch?",
+		"options": {
+			"Wenn sie in der Funktionsgleichung und Wertmenge übereinstimmen.":"",
+			"Wenn sie in der Definitionsmenge und Wertmenge übereinstimmen.":"",
+			"Wenn sie in der Funktionsgleichung und Definitionsmenge übereinstimmen.":"",
+			"Wenn sie in der Funktionsgleichung, Definitionsmenge und Wertmenge übereinstimmen.":""
+		},
+		"correct_answer": "Wenn sie in der Funktionsgleichung, Definitionsmenge und Wertmenge übereinstimmen."
+	}
+}
