@@ -1,5 +1,5 @@
 {
-	"cquiz_2_1": {
+	"cquiz_12_1": {
 		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph A aus Abbildung 1.",
 		"options": {
 			"f(x) = 2x + 6" : "Die Steigung wurde leider falsch berechnet.", 
@@ -9,7 +9,7 @@
 	  	},
 		"correct_answer": "f(x) = 3x + 6"
 	},
-	"cquiz_2_2": {
+	"cquiz_12_2": {
 		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph B aus Abbildung 2.",
 		"options": {
 			"f(x) = 1x - 5" : "Beachten Sie, dass der Graph fällt! Die Steigung muss also negativ sein.", 
@@ -19,7 +19,7 @@
 	  	},
 		"correct_answer": "f(x) = -1x - 5"
 	},
-	"cquiz_2_3": {
+	"cquiz_12_3": {
 		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph C aus Abbildung 3.",
 		"options": {
 			"f(x) = 3x" : "Haben Sie die Steigung richtig berechnet?", 
@@ -29,7 +29,7 @@
 	  	},
 		"correct_answer": "f(x) = 4x"
 	},
-	"cquiz_2_4": {
+	"cquiz_12_4": {
 		"description": "Welcher der Graphen in Abbildung 4 wird durch die Funktion $f(x) = -2x - 3$ beschrieben?",
 		"options": {
 			"Der lilane Graph" : "", 
@@ -39,7 +39,7 @@
 	  	},
 		"correct_answer": "Der lilane Graph"
 	},
-	"cquiz_2_5": {
+	"cquiz_12_5": {
 		"description": "Welcher der Graphen in Abbildung 5 wird durch die Funktion $f(x) = 6x + 2$ beschrieben?",
 		"options": {
 			"Der lilane Graph" : "Haben Sie die Steigung und den y-Achsen-Abschnitt vertauscht?", 
@@ -49,7 +49,7 @@
 	  	},
 		"correct_answer": "Der orange Graph"
 	},
-	"cquiz_2_6": {
+	"cquiz_12_6": {
 		"description": "Welcher der Graphen in Abbildung 6 wird durch die Funktion $f(x) = 2x$ beschrieben?",
 		"options": {
 			"Der lilane Graph" : "", 

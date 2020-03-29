@@ -1,0 +1,69 @@
+{
+	"cquiz_13_1": {
+		"description": "Welcher Parameter darf nicht $0$ sein, damit eine Parabel dargestellt wird?",
+		"options": {
+			"a" : "", 
+	 		"c" : "", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "a"
+	},
+	"cquiz_13_2": {
+		"description": "Welcher Parameter ist für die Verschiebung der Normalparabel nach links und rechts verantwortlich?",
+		"options": {
+			"a" : "", 
+	 		"c" : "", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_13_3": {
+		"description": "Welcher Parameter ist für die Verschiebung der Normalparabel nach oben und unten verantwortlich?",
+		"options": {
+			"a" : "", 
+	 		"c" : "", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "c"
+	},
+	"cquiz_13_4": {
+		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die Parabel schmaler wird?",
+		"options": {
+			"a > 1" : "", 
+	 		"a > 0" : "", 
+	  		"a > 2" : "",
+	  		"1 > a > 0" : ""
+	  	},
+		"correct_answer": "a > 1"
+	},
+	"cquiz_13_5": {
+		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die Parabel breiter wird?",
+		"options": {
+			"a > 1" : "", 
+	 		"a > 0" : "", 
+	  		"a > 2" : "",
+	  		"1 > a > 0" : ""
+	  	},
+		"correct_answer": "1 > a > 0"
+	},
+	"cquiz_13_6": {
+		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die Parabel breiter und nach unten geöffnet wird?",
+		"options": {
+			"1 > a" : "", 
+	 		"0 > a" : "", 
+	  		"-1 > a" : "",
+	  		"0 > a > -1" : ""
+	  	},
+		"correct_answer": "0 > a > -1"
+	},
+	"cquiz_13_7": {
+		"description": "Wie müssen $a, c, d$ gesetzt werden, damit der Scheitelpunkt der Parabel $(1|1)$ ist und die Parabel die y-Achse im Punkt $(0|2)$ schneidet?",
+		"options": {
+			"a = 1, c = 0, d = 2" : "", 
+	 		"a = 2, c = 0, d = 1" : "", 
+	  		"a = 1, c = 1, d = 1" : "",
+	  		"a = 2, c = 1, d = 1" : ""
+	  	},
+		"correct_answer": "a = 1, c = 1, d = 1"
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"cquiz_1_1": {
+	"cquiz_11_1": {
 		"description": "Was unterscheidet eine Funktion von einer Zuordnung?",
 		"options": {
 			"Nichts, sie beschreiben eigentlich dasselbe." : "Es gibt einen Unterschied.", 
@@ -9,7 +9,7 @@
 	  	},
 		"correct_answer": "Eine Funktion ist eine eindeutige Zuordnung, bei der jedem x-Wert genau ein y-Wert zugeordnet wird."
 	},
-	"cquiz_1_2": {
+	"cquiz_11_2": {
 		"description": "Zu welchen Mengen gehören die x- und y-Werte? Wieviel Elemente werden der Wertmenge zugeordnet?",
 		"options": {
 			"x-Werte: Definitionsmenge, y-Werte: Wertemenge. Jedem Element der Definitionsmenge wird genau ein Element der Wertemenge zugeordnet.": "",
@@ -19,7 +19,7 @@
 		},
 		"correct_answer": "x-Werte: Definitionsmenge, y-Werte: Wertemenge. Jedem Element der Definitionsmenge wird genau ein Element der Wertemenge zugeordnet."
 	},
-	"cquiz_1_3": {
+	"cquiz_11_3": {
 		"description": "Ab wann sind zwei Funktionen identisch?",
 		"options": {
 			"Wenn sie in der Funktionsgleichung und Wertmenge übereinstimmen.":"",
