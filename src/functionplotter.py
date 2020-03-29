@@ -17,6 +17,9 @@ def constant_function(c, x):
 def linear_function(m, b, x):
 	return m*x + b
 
+def normal_parabola(a, c, d, x):
+	return a*((x-d)**2) + c
+
 def quadratic_function(a, b, c, x):
 	return a*(x**2) + b * x + c
 
@@ -48,6 +51,8 @@ def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 		y = linear_function(kwargs["v1"], kwargs["v2"], x)
 	elif function == "quadratic" and len(kwargs) > 2:
 		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+	elif function == "normal_parabola" and len(kwargs) > 2:
+		y = normal_parabola(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
 
 	fig = plt.figure()
 	ax = fig.add_subplot(1, 1, 1)
@@ -84,18 +89,20 @@ def plt_function(function = "constant",
 				 space=(-10.0, 10.0), 
 				 slider_step = 1.0):
 	""" Plot function by function name. """
-	available_functions = ["constant", "linear", "quadratic"]
-	if function == "constant":
-		value_names = ["c", "x"]
-		sliders = get_slider(value_names, space=space, slider_step=slider_step)
-	elif function == "linear":
-		value_names = ["m", "b"]
-		sliders = get_slider(value_names, space=space, slider_step=slider_step)
-	elif function == "quadratic":
-		value_names = ["a", "b", "c"]
-		sliders = get_slider(value_names, space=space, slider_step=slider_step)
+	available_functions = ["constant", "linear", "normal_parabola", "quadratic"]
 	
 	if function in available_functions:
+		if function == "constant":
+			value_names = ["c", "x"]
+		elif function == "linear":
+			value_names = ["m", "b"]
+		elif function == "normal_parabola":
+			value_names = ["a", "c", "d"]
+		elif function == "quadratic":
+			value_names = ["a", "b", "c"]
+
+		sliders = get_slider(value_names, space=space, slider_step=slider_step)
+
 		kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
 		interact(get_function, function=fixed(function), space=fixed(space), **kwargs)
 	else:
