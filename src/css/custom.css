@@ -4,7 +4,7 @@
 /* special fields*/
 
 div.digression {    
-    background-color: #e5f6ff;
+    background-color: #f6f6f6;
     border-color: #a1c6de;
     border-left: 5px solid #a1c6de;
     border-right: 5px solid #a1c6de;
@@ -14,7 +14,7 @@ div.digression {
 }
 
 div.note {    
-    background-color: #e5f6ff;
+    background-color: #f6f6f6;
     border-color: #ffb382;
     border-left: 5px solid #ffb382;
     border-right: 5px solid #ffb382;
@@ -24,7 +24,7 @@ div.note {
 }
 
 div.task {    
-    background-color: #e5f6ff;
+    background-color: #f6f6f6;
     border-color: #99b898;
     border-left: 5px solid #99b898;
     border-right: 5px solid #99b898;
@@ -34,7 +34,7 @@ div.task {
 }
 
 div.warn {    
-    background-color: #e5f6ff;
+    background-color: #f6f6f6;
     border-color: #cc1a32;
     border-left: 5px solid #cc1a32;
     border-right: 5px solid #cc1a32;
