@@ -95,11 +95,14 @@ input.hide:checked ~ span.content {
 }
 
 
-
-
-
-
 /* Tables & side by side images */
+
+/* 2 images side by side */
+.imgcolumn2 {
+  float: left;
+  width: 50.0%;
+  padding: 5px;
+}
 
 /* 3 images side by side */
 .imgcolumn3 {
