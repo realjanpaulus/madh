@@ -19,10 +19,11 @@ Offline-Nutzung mit Jupyter Lab wird nicht unterstützt. Bei der Benutzung von J
 
 Erforderlich: Python 3.6+
 
-#### Installation mit conda (empfohlen für Anfänger)
+#### Installation mit conda (empfohlen für Anfänger) 
+(TODO: Es ist sicherer eine eigene virtuelle Umgebung einzurichten, unter conda mit conda create)
 Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben.
 
-`conda install -r requirements.txt` (TODO: requirements installieren)
+`conda install --file requirements.txt` (TODO: requirements installieren)
 
 #### Installation mit pip
 
