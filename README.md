@@ -1,12 +1,16 @@
 # MADH: Math for Digital Humanities students
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/realjanpaulus/madh/master)
 
 # Bedienungsanleitung
 
-Um die Tutorials nutzen zu können, gibt es zwei Möglichkeiten: Die Offline-Nutzung (empfohlen) und die Online-Nutzung mithilfe von **Binder**. Die folgende Installationsanleitung bezieht sich nur auf die Offline-Nutzung. Für die Online-Nutzung muss lediglich auf das [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/realjanpaulus/madh/master) Logo geklickt werden. Sollte diese Option genutzt werden, überspringen Sie den nächsten Schritt "Installationsanleitung (Anfänger)".
+Für die Nutzung der Bedienungsanleitung wird aktuell die Offline-Nutzung empfohlen. Die folgenden Schritte müssen für die Benutzung der Tutorials ausgeführt werden:
+1. Das Repository klonen / downloaden & entpacken (siehe auch "Installationsanleitung (Anfänger) / Download")
+2. In das Verzeichnis *madh* des geklonten/gedownloadeten Verzeichnis mithilfe eines Terminals navigieren
+3. Die Requirements des Projekts installieren (siehe "Installationsanleitung (Anfänger) / Installation des gedownloadeten Projekts")
+3. Jupyter Notebook mithilfe dem Befehl `jupyter-notebook` oder `jupyter notebook` ausführen
+4. Im geöffneten Browserfenster zum "Calculus" oder "Lineare Algebra"-Ordner navigieren und die darin enthaltenen Notebooks ausführen
 
-Offline-Nutzung mit Jupyter Lab wird nicht unterstützt. Bei der Benutzung von Jupyter Lab können Javascript Befehle wie in Quizzen nicht dargestellt werden. Für die Verwendung mit Jupyter Lab muss eine Erweiterung installiert werden (siehe <a href="https://stackoverflow.com/questions/49542417/how-to-get-ipywidgets-working-in-jupyter-lab">Stackoverflow</a>).
+<u>ACHTUNG</u>: Die Offline-Nutzung mit <b>Jupyter Lab</b> wird nicht unterstützt. Bei der Benutzung von Jupyter Lab können Javascript Befehle, die z.B. in Quizzen verwendet werden, nicht dargestellt werden. Für die Verwendung mit Jupyter Lab muss eine Erweiterung installiert werden (siehe <a href="https://stackoverflow.com/questions/49542417/how-to-get-ipywidgets-working-in-jupyter-lab">Stackoverflow</a>).
 
 ## Installationsanleitung (Anfänger)
 
@@ -28,30 +32,3 @@ Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben.
 
 `pip install -r requirements.txt` (TODO: requirements installieren)
 
-#### Installation mit pipenv
-
-Pipenv erstellt und verwaltet automatisch eine Virtuelle Umgebung für dieses Projekt. Installation erfolgt folgendermaßen:
-
-```
-$ pip install pipenv
-```
-
-Um die Abhängigkeiten des Projekts zu installieren:
-
-```
-$ pipenv install
-```
-
-Sie können eine Shell mit folgendem Befehl erzeugen:
-
-```
-$ pipenv shell
-```
-
-
-
-
-TODO:
-- Anleitung, wie man Requirements installiert
-- BESSER: alles in einem installieren (vllt zu aufwendig?)
-- binder? ja
