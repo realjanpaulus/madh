@@ -32,3 +32,9 @@ Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben.
 
 `pip install -r requirements.txt` (TODO: requirements installieren)
 
+## Unterstütze Systeme
+
+* Windows 10
+* MacOS Catalina
+* Manjaro
+
