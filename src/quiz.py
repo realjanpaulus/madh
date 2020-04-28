@@ -3,6 +3,7 @@ from IPython.core.display import HTML
 from IPython.display import clear_output, display, Markdown
 import ipywidgets as widgets
 import json
+import numpy as np
 from pathlib import Path
 import sys
 from typing import Dict, List, Optional, Tuple, Union
@@ -238,9 +239,9 @@ def start_quiz(quiz_number: int,
 				elif right_answers == 0:
 					display(Markdown(f"Sie haben keine der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen und ggbf. das Kapitel noch einmal durchzuarbeiten."))
 				elif right_answers/len(answers) < 0.75:
-					display(Markdown(f"Sie haben nur {formatNumber((right_answers/len(answers))*100)}% der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen."))
+					display(Markdown(f"Sie haben nur {np.around(formatNumber((right_answers/len(answers))*100), decimals=2)}% der beantworteten Fragen richtig beantwortet. Es wird empfohlen, die Aufgaben zu wiederholen."))
 				elif right_answers/len(answers) >= 0.75:
-					display(Markdown(f"Sie haben {formatNumber((right_answers/len(answers))*100)}% der beantworteten Fragen richtig beantwortet. Sie können gerne fortfahren oder aber versuchen, alle Fragen richtig zu beantworten."))
+					display(Markdown(f"Sie haben {np.around(formatNumber((right_answers/len(answers))*100), decimals=2)}% der beantworteten Fragen richtig beantwortet. Sie können gerne fortfahren oder aber versuchen, alle Fragen richtig zu beantworten."))
 
 
 		

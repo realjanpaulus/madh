@@ -13,12 +13,14 @@ from matplotlib.ticker import MaxNLocator
 def constant_function(c, x):
 	return c
 
-
 def linear_function(m, b, x):
 	return m*x + b
 
 def normal_parabola(a, c, d, x):
 	return a*((x-d)**2) + c
+
+def power_function(a, n, x):
+	return a * np.power(x, n)
 
 def quadratic_function(a, b, c, x):
 	return a*(x**2) + b * x + c
@@ -44,15 +46,18 @@ def coordinate_system(ax, neg_dim, pos_dim):
 def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 	""" Computes a function given by name."""
 	x = np.linspace(space[0],space[1],num=100)
+
 	if function == "constant" and len(kwargs) > 0:
-		
 		y = constant_function(kwargs["v1"], x)
 	elif function == "linear" and len(kwargs) > 1:
 		y = linear_function(kwargs["v1"], kwargs["v2"], x)
-	elif function == "quadratic" and len(kwargs) > 2:
-		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
 	elif function == "normal_parabola" and len(kwargs) > 2:
 		y = normal_parabola(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+	elif function == "power" and len(kwargs) > 1:
+		y = power_function(kwargs["v1"], kwargs["v2"], x)
+	elif function == "quadratic" and len(kwargs) > 2:
+		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+	
 
 	fig = plt.figure()
 	ax = fig.add_subplot(1, 1, 1)
@@ -89,7 +94,8 @@ def plt_function(function = "constant",
 				 space=(-10.0, 10.0), 
 				 slider_step = 1.0):
 	""" Plot function by function name. """
-	available_functions = ["constant", "linear", "normal_parabola", "quadratic"]
+	available_functions = ["constant", "linear", "normal_parabola", 
+						   "power", "quadratic"]
 	
 	if function in available_functions:
 		if function == "constant":
@@ -98,6 +104,8 @@ def plt_function(function = "constant",
 			value_names = ["m", "b"]
 		elif function == "normal_parabola":
 			value_names = ["a", "c", "d"]
+		elif function == "power":
+			value_names = ["a", "n"]
 		elif function == "quadratic":
 			value_names = ["a", "b", "c"]
 
