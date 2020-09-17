@@ -30,7 +30,7 @@
 		"correct_answer": "Lineare Funktion"
 	},
 	"cquiz_12_4": {
-		"description": "Sie leben am Meer und messen jede Stunde den Wasserstand, welcher von Ebbe und Flut beeinflusst wird. Welche Funktion modelliert Ihrer Ansicht nach am besten den stündlichen Wasserstand, wenn die y-Achse der Wasserstand in Metern und die x-Achse die Zeit in Stunden darstellt?",
+		"description": "Sie befinden sich am Meer und messen jede Stunde den Wasserstand, welcher von Ebbe und Flut beeinflusst wird. Welche Funktion modelliert Ihrer Ansicht nach am besten den stündlichen Wasserstand, wenn die y-Achse der Wasserstand in Metern und die x-Achse die Zeit in Stunden darstellt?",
 		"options": {
 			"Exponentialfunktion" : "Der Wasserspiegel würde immer weiter ansteigen.", 
 	 		"Logarithmusfunktion" : "Der Wasserspiegel würde nie zurückgehen.", 
