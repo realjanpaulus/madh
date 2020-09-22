@@ -16,7 +16,7 @@ Für die Nutzung der Bedienungsanleitung wird aktuell die Offline-Nutzung empfoh
 
 ### Download
 
-Über Button <img src="src/img/clone_download.png" alt="clone_download-icon" width="60" height="12"/> in der rechten oberen Ecke dieser Seite kann das Projekt geklont oder gedownloadet werden ("Download ZIP"). Sollte es gedownloadet werden, muss das ZIP-Archiv entpackt werden. Mit dem Terminal muss in das entsprechende Verzeichnis navigiert werden (Tutorial dafür: TODO).
+Über Button <img src="Calculus/img/clone_download.png" alt="clone_download-icon" width="60" height="12"/> in der rechten oberen Ecke dieser Seite kann das Projekt geklont oder gedownloadet werden ("Download ZIP"). Sollte es gedownloadet werden, muss das ZIP-Archiv entpackt werden. Mit dem Terminal muss in das entsprechende Verzeichnis navigiert werden (Tutorial dafür: TODO).
 
 
 ### Installation des gedownloadeten Projekts
