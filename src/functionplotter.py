@@ -45,6 +45,7 @@ def coordinate_system(ax, neg_dim, pos_dim):
 
 def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 	""" Computes a function given by name."""
+
 	x = np.linspace(space[0],space[1],num=100)
 
 	if function == "constant" and len(kwargs) > 0:
@@ -74,16 +75,16 @@ def get_slider(value_names = ["x", "w"],
 	"""
 	
 	return [widgets.FloatSlider(value=0, 
-								   min=space[0], 
-								   max=space[1],
-								   step=slider_step,
-								   description=f'{value_names[i]}',
-								   disabled=False,
-								   continuous_update=False,
-								   orientation='horizontal',
-								   readout=True,
-								   readout_format='.1f',) 
-			   for i in range(len(value_names))]
+								min=space[0], 
+								max=space[1],
+								step=slider_step,
+								description=f'{value_names[i]}',
+								disabled=False,
+								continuous_update=False,
+								orientation='horizontal',
+								readout=True,
+								readout_format='.1f',)
+			for i in range(len(value_names))]
 
 
 # ============ #
@@ -115,3 +116,4 @@ def plt_function(function = "constant",
 		interact(get_function, function=fixed(function), space=fixed(space), **kwargs)
 	else:
 		print(f"Function '{function}' is unknown.")
+
