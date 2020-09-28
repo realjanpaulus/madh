@@ -53,6 +53,7 @@ input.hide {
   visibility: hidden;
 }
 
+
 label.answers {
   border: 1px solid black;
   padding: 1px;
@@ -93,6 +94,7 @@ input.show:checked ~ span.content {
 input.hide:checked ~ span.content {
   display:none;
 }
+
 
 
 /* Tables & side by side images */

@@ -13,8 +13,18 @@ from matplotlib.ticker import MaxNLocator
 def constant_function(c, x):
 	return c
 
+def exponential_function(a, x):
+	if a == 0:
+		a = 1e-10
+	return np.power(a, x)
+
 def linear_function(m, b, x):
 	return m*x + b
+
+def logarithmic_function(a, x):
+	if a == 0:
+		a = 1e-10
+	return np.log(x) / np.log(a)
 
 def normal_parabola(a, c, d, x):
 	return a*((x-d)**2) + c
@@ -50,8 +60,14 @@ def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 
 	if function == "constant" and len(kwargs) > 0:
 		y = constant_function(kwargs["v1"], x)
+	elif function == "exponential" and len(kwargs) > 0:
+		y = exponential_function(kwargs["v1"], x)
 	elif function == "linear" and len(kwargs) > 1:
 		y = linear_function(kwargs["v1"], kwargs["v2"], x)
+	elif function == "logarithmic" and len(kwargs) > 0:
+		import warnings
+		warnings.filterwarnings("ignore", category=RuntimeWarning) 
+		y = logarithmic_function(kwargs["v1"], x)
 	elif function == "normal_parabola" and len(kwargs) > 2:
 		y = normal_parabola(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
 	elif function == "power" and len(kwargs) > 1:
@@ -95,14 +111,18 @@ def plt_function(function = "constant",
 				 space=(-10.0, 10.0), 
 				 slider_step = 1.0):
 	""" Plot function by function name. """
-	available_functions = ["constant", "linear", "normal_parabola", 
-						   "power", "quadratic"]
+	available_functions = ["constant", "exponential", "linear", "logarithmic", 
+						   "normal_parabola", "power", "quadratic"]
 	
 	if function in available_functions:
 		if function == "constant":
 			value_names = ["c", "x"]
+		elif function == "exponential":
+			value_names = ["a"]
 		elif function == "linear":
 			value_names = ["m", "b"]
+		elif function == "logarithmic":
+			value_names = ["a"]
 		elif function == "normal_parabola":
 			value_names = ["a", "c", "d"]
 		elif function == "power":
