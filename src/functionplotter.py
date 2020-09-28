@@ -35,6 +35,14 @@ def power_function(a, n, x):
 def quadratic_function(a, b, c, x):
 	return a*(x**2) + b * x + c
 
+def trigonometric_function(sct, x):
+	if sct == "Kosinus":
+		return np.cos(x)
+	elif sct == "Sinus":
+		return np.sin(x)
+	elif sct == "Tangens":
+		return np.tan(x)
+
 # ================ #
 # helper functions #
 # ================ #
@@ -74,6 +82,9 @@ def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 		y = power_function(kwargs["v1"], kwargs["v2"], x)
 	elif function == "quadratic" and len(kwargs) > 2:
 		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+	elif function == "trigonometric" and len(kwargs) > 0:
+		x = np.linspace(-10 * np.pi, 10 * np.pi, 1000)
+		y = trigonometric_function(kwargs["v1"], x)
 	
 
 	fig = plt.figure()
@@ -89,18 +100,26 @@ def get_slider(value_names = ["x", "w"],
 	""" Returns a slider element in a list for 
 		every value in value_names.
 	"""
-	
-	return [widgets.FloatSlider(value=0, 
-								min=space[0], 
-								max=space[1],
-								step=slider_step,
-								description=f'{value_names[i]}',
-								disabled=False,
-								continuous_update=False,
-								orientation='horizontal',
-								readout=True,
-								readout_format='.1f',)
-			for i in range(len(value_names))]
+	if "cos" in value_names or "sin" in value_names or "tan" in value_names:
+		return [widgets.SelectionSlider(value="Kosinus", 
+										options=["Kosinus", "Sinus", "Tangens"],
+										description=f"{i}",
+										disabled=False,
+										continuous_update=False,
+										orientation='horizontal',
+										readout=True,) for i in ["Funktion"]]
+	else:	
+		return [widgets.FloatSlider(value=0, 
+									min=space[0], 
+									max=space[1],
+									step=slider_step,
+									description=f'{value_names[i]}',
+									disabled=False,
+									continuous_update=False,
+									orientation='horizontal',
+									readout=True,
+									readout_format='.1f',)
+				for i in range(len(value_names))]
 
 
 # ============ #
@@ -112,7 +131,7 @@ def plt_function(function = "constant",
 				 slider_step = 1.0):
 	""" Plot function by function name. """
 	available_functions = ["constant", "exponential", "linear", "logarithmic", 
-						   "normal_parabola", "power", "quadratic"]
+						   "normal_parabola", "power", "quadratic", "trigonometric"]
 	
 	if function in available_functions:
 		if function == "constant":
@@ -129,9 +148,10 @@ def plt_function(function = "constant",
 			value_names = ["a", "n"]
 		elif function == "quadratic":
 			value_names = ["a", "b", "c"]
-
+		elif function == "trigonometric":
+			value_names = ["cos", "sin", "tan"]
+		
 		sliders = get_slider(value_names, space=space, slider_step=slider_step)
-
 		kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
 		interact(get_function, function=fixed(function), space=fixed(space), **kwargs)
 	else:
