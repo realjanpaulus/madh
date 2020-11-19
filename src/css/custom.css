@@ -1,8 +1,11 @@
 <style>
 
 
+
 /* special fields*/
 
+
+/* light blue */ 
 div.digression {    
     background-color: #f6f6f6;
     border-color: #a1c6de;
@@ -13,6 +16,7 @@ div.digression {
     padding: 0.5em;
 }
 
+/* orange */
 div.note {    
     background-color: #f6f6f6;
     border-color: #ffb382;
@@ -23,6 +27,7 @@ div.note {
     padding: 0.5em;
 }
 
+/* light green */
 div.task {    
     background-color: #f6f6f6;
     border-color: #99b898;
@@ -33,6 +38,18 @@ div.task {
     padding: 0.5em;
 }
 
+div.tool {    
+    background-color: #f6f6f6;
+    border-color: #f542e0;
+    border-left: 7px solid #f542e0;
+    border-right: 7px solid #f542e0;
+    border-top: 7px solid #f542e0;
+    border-bottom: 7px solid #f542e0;
+    border-style: double;
+    padding: 0.5em;
+}
+
+/* dark red */
 div.warn {    
     background-color: #f6f6f6;
     border-color: #cc1a32;
@@ -41,6 +58,28 @@ div.warn {
     border-top: 5px solid #cc1a32;
     border-bottom: 5px solid #cc1a32;
     padding: 0.5em;
+}
+
+img.icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block; 
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+span.invisible_border {
+  padding: 0.1em;
+  font-size: 20px;
+}
+
+div.border {
+  border-color: #666666;
+  border-left: 1.5px solid;
+  border-right: 1.5px solid;
+  border-top: 1.5px solid;
+  border-bottom: 1.5px solid;
+  padding: 0.1em;
 }
 
 
@@ -94,6 +133,7 @@ input.show:checked ~ span.content {
 input.hide:checked ~ span.content {
   display:none;
 }
+
 
 
 

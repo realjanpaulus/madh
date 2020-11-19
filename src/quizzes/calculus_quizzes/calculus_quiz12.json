@@ -20,7 +20,7 @@
 		"correct_answer": "Quadratische Funktion"
 	},
 	"cquiz_12_3": {
-		"description": "Ein Smartphone mit 2% Akku wird an eine Steckdose angeschlossen. Jede Minute wird der Akku um 2% aufgeladen. Welche Funktion modelliert Ihrer Ansicht nach am besten die Ladezeit, wenn die y-Achse die Akkuleistung und die x-Achse die Zeit in Minuten darstellt?",
+		"description": "Ein Smartphone mit 2% Akku wird an eine Steckdose angeschlossen. Jede Minute wird der Akku um 2% aufgeladen. Welche Funktion modelliert Ihrer Ansicht nach am besten die Ladezeit, wenn die y-Achse die Akkuleistung und die x-Achse die Zeit in Minuten darstellt? (<u>Hinweis</u>: Ignorieren Sie die Quadranten mit negativen Werten. Außerdem gehen wir der Einfachheit halber hier davon aus, dass der Akkustand auch größer als 100% sein kann.)",
 		"options": {
 			"Lineare Funktion" : "Die Gerade schneidet dabei die y-Achse bei 2.", 
 	 		"Konstante Funktion" : "Bei einer konstanten Funktion würde die Akkuleistung immer gleich bleiben.", 
