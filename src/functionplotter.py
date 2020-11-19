@@ -95,7 +95,8 @@ def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
 		
 def get_slider(value_names = ["x", "w"], 
 			   space = (-10.0, 10.0), 
-			   slider_step = 1.0):
+			   slider_step = 1.0,
+			   startvalue = 0):
 	""" Returns a slider element in a list for 
 		every value in value_names.
 	"""
@@ -108,7 +109,7 @@ def get_slider(value_names = ["x", "w"],
 										orientation='horizontal',
 										readout=True,) for i in ["Funktion"]]
 	else:	
-		return [widgets.FloatSlider(value=0, 
+		return [widgets.FloatSlider(value=startvalue, 
 									min=space[0], 
 									max=space[1],
 									step=slider_step,
@@ -127,7 +128,8 @@ def get_slider(value_names = ["x", "w"],
 
 def plt_function(function = "constant", 
 				 space=(-10.0, 10.0), 
-				 slider_step = 1.0):
+				 slider_step = 1.0,
+				 startvalue=0):
 	""" Plot function by function name. """
 	available_functions = ["constant", "exponential", "linear", "logarithmic", 
 						   "normal_parabola", "power", "quadratic", "trigonometric"]
@@ -150,7 +152,7 @@ def plt_function(function = "constant",
 		elif function == "trigonometric":
 			value_names = ["cos", "sin", "tan"]
 		
-		sliders = get_slider(value_names, space=space, slider_step=slider_step)
+		sliders = get_slider(value_names, space=space, slider_step=slider_step, startvalue=startvalue)
 		kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
 		interact(get_function, function=fixed(function), space=fixed(space), **kwargs)
 	else:
