@@ -3,7 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 from matplotlib.ticker import MaxNLocator
-from scipy import misc
+from scipy.misc import derivative
+
+#todo
+from sympy import *
+import sympy as sym
+
 import typing
 from typing import Optional
 import warnings
@@ -86,44 +91,55 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 	elif name == "power" and len(kwargs) > 1:
 		y = power_function(kwargs["v1"], kwargs["v2"], x)
 	elif name == "quadratic":
+
 		#todo 	and len(kwargs) > 2:
 		#TODO: fixing derivative
 		#TODO: extra slider?
 		#TODO: fixed quadratic function?
 		
 		if d1:
-			func = np.poly1d(np.array([1, 2, 3]).astype(float))
-			func1 = func.deriv(m=1)
-			y = func(x)
-			y1 = func1(x)
+			
 
 			#y = quadratic_function(x, 1, 2, 3)
-			#y1 = np.gradient(quadratic_function(x, 1, 2, 3), kwargs["v1"])
-			#y1 = misc.derivative(quadratic_function, x)
-			#y1 = linear_function(kwargs["v1"]*2, kwargs["v2"], x)
-			#y1 = np.gradient(quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"]), x)
+			y = quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"])
+			#y1 = derivative(y, x, dx=1e-06)
+			y1 = np.gradient(y, x)
+
+			"""todo
+			t = Symbol('x') 
+			y = kwargs["v1"]*(x**2) + (kwargs["v2"] * x) + kwargs["v3"]
+			y1 = sym.diff(y, x)
+			print(y1)
+			"""
+
 		else:
 			#todo: geändert reihenfolge
 			y = quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"])
+
+
 
 	elif name == "trigonometric" and len(kwargs) > 0:
 		x = np.linspace(-10 * np.pi, 10 * np.pi, 1000)
 		y = trigonometric_function(kwargs["v1"], x)
 	
-
 	if d1:
-		# plotting figure
-		fig, ax = plt.subplots()
+		fig = plt.figure()
+		ax = fig.subplots()
 		coordinate_system(ax, space[0],space[1]) 
-		plt.plot(x, y, x, y1)
+		ax.plot(x, y, x, y1)
+
+		plt.grid()
+		plt.show()
+	
 	else:
 		fig = plt.figure()
 		ax = fig.add_subplot(1, 1, 1)
 		coordinate_system(ax, space[0],space[1]) 
 		plt.plot(x, y)
 
-	plt.grid()
-	plt.show()
+		plt.grid()
+		plt.show()
+
 		
 def get_slider(value_names: Optional[list] = ["x", "w"], 
 			   space: Optional[tuple] = (-10.0, 10.0), 
@@ -227,11 +243,7 @@ def plt_function(name: Optional[str] = "constant",
 			value_names = ["a", "b", "c"]
 			
 			#todo
-			"""
-			if d1: 
-				value_names += "x"
-			"""
-			if d1: value_names = []
+			#if d1: value_names = []
 
 
 		# trigonometric
