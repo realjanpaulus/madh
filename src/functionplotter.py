@@ -3,6 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 from matplotlib.ticker import MaxNLocator
+from scipy import misc
+import typing
+from typing import Optional
 import warnings
 
 # ==================== #
@@ -28,8 +31,9 @@ def normal_parabola(a, c, d, x):
 def power_function(a, n, x):
 	return a * np.power(x, n)
 
-def quadratic_function(a, b, c, x):
-	return a*(x**2) + b * x + c
+# todo: passt das?
+def quadratic_function(x, a=1, b=2, c=3):
+	return a*(x**2) + (b * x) + c
 
 def trigonometric_function(sct, x):
 	if sct == "Kosinus":
@@ -57,48 +61,83 @@ def coordinate_system(ax, neg_dim, pos_dim):
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 
-def get_function(function = "constant", space=(-10.0, 10.0), **kwargs):
+def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 	""" Computes a function given by name."""
-
+	
 	x = np.linspace(space[0],space[1],num=100)
 
-	if function == "constant" and len(kwargs) > 0:
+	if name == "constant" and len(kwargs) > 0:
 		y = constant_function(kwargs["v1"], x)
-	elif function == "exponential" and len(kwargs) > 0:
+		if d1: y1 = constant_function(kwargs["v1"], x)
+	elif name == "exponential" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
 		y = exponential_function(kwargs["v1"], x)
-	elif function == "linear" and len(kwargs) > 1:
+	elif name == "linear" and len(kwargs) > 1:
 		y = linear_function(kwargs["v1"], kwargs["v2"], x)
-	elif function == "logarithmic" and len(kwargs) > 0:
+		if d1: y1 = constant_function(kwargs["v1"], x)
+	elif name == "logarithmic" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
 		x = np.linspace(space[0],space[1],num=10000)
 		y = logarithmic_function(kwargs["v1"], x)
-	elif function == "normal_parabola" and len(kwargs) > 2:
+	elif name == "normal_parabola" and len(kwargs) > 2:
 		y = normal_parabola(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
-	elif function == "power" and len(kwargs) > 1:
+	elif name == "power" and len(kwargs) > 1:
 		y = power_function(kwargs["v1"], kwargs["v2"], x)
-	elif function == "quadratic" and len(kwargs) > 2:
-		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
-	elif function == "trigonometric" and len(kwargs) > 0:
+	elif name == "quadratic":
+		#todo 	and len(kwargs) > 2:
+		#TODO: fixing derivative
+		#TODO: extra slider?
+		#TODO: fixed quadratic function?
+		
+		if d1:
+			func = np.poly1d(np.array([1, 2, 3]).astype(float))
+			func1 = func.deriv(m=1)
+			y = func(x)
+			y1 = func1(x)
+
+			#y = quadratic_function(x, 1, 2, 3)
+			#y1 = np.gradient(quadratic_function(x, 1, 2, 3), kwargs["v1"])
+			#y1 = misc.derivative(quadratic_function, x)
+			#y1 = linear_function(kwargs["v1"]*2, kwargs["v2"], x)
+			#y1 = np.gradient(quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"]), x)
+		else:
+			#todo: geändert reihenfolge
+			y = quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"])
+
+	elif name == "trigonometric" and len(kwargs) > 0:
 		x = np.linspace(-10 * np.pi, 10 * np.pi, 1000)
 		y = trigonometric_function(kwargs["v1"], x)
 	
 
-	fig = plt.figure()
-	ax = fig.add_subplot(1, 1, 1)
-	coordinate_system(ax, space[0],space[1]) 
-	plt.plot(x, y)
+	if d1:
+		# plotting figure
+		fig, ax = plt.subplots()
+		coordinate_system(ax, space[0],space[1]) 
+		plt.plot(x, y, x, y1)
+	else:
+		fig = plt.figure()
+		ax = fig.add_subplot(1, 1, 1)
+		coordinate_system(ax, space[0],space[1]) 
+		plt.plot(x, y)
+
 	plt.grid()
 	plt.show()
 		
-def get_slider(value_names = ["x", "w"], 
-			   space = (-10.0, 10.0), 
-			   slider_step = 1.0,
-			   startvalue = 0):
-	""" Returns a slider element in a list for 
-		every value in value_names.
+def get_slider(value_names: Optional[list] = ["x", "w"], 
+			   space: Optional[tuple] = (-10.0, 10.0), 
+			   slider_step: Optional[float] = 1.0,
+			   startvalue: Optional[int] = 0) -> list:
+	""" Returns a slider element in a list for every value in value_names.
+
+	Args:
+		value_names: list of function parameter names.
+		space: starting and stopping value for np.linspace, stored in a tuple.
+		slider_step: value for slider steps.
+		startvalue: starting value for the slider steps.
+	Returns:
+		list of slider elements.
 	"""
 	if "cos" in value_names or "sin" in value_names or "tan" in value_names:
 		return [widgets.SelectionSlider(value="Kosinus", 
@@ -122,39 +161,101 @@ def get_slider(value_names = ["x", "w"],
 				for i in range(len(value_names))]
 
 
-# ============ #
-# plt function #
-# ============ #
+# =================== #
+# (main) plt function #
+# =================== #
 
-def plt_function(function = "constant", 
-				 space=(-10.0, 10.0), 
-				 slider_step = 1.0,
-				 startvalue=0):
-	""" Plot function by function name. """
-	available_functions = ["constant", "exponential", "linear", "logarithmic", 
-						   "normal_parabola", "power", "quadratic", "trigonometric"]
+def plt_function(name: Optional[str] = "constant", 
+				 space: Optional[tuple] = (-10.0, 10.0), 
+				 slider_step: Optional[float] = 1.0,
+				 startvalue: Optional[float] = 0,
+				 d1: Optional[bool] = False) -> None:
+	""" Plot function by function name. 
+
+	Args:
+		name: name of the function.
+		space: starting and stopping value for np.linspace, stored in a tuple.
+		slider_step: value for slider steps.
+		startvalue: starting value for the slider steps.
+		d1: True for plotting the first derivative.
+	Returns:
+		None
+	"""
+	available_functions = ["constant", "c", "con",
+						   "exponential", "e", "exp", 
+						   "linear", "li", "lin",
+						   "logarithmic", "lo", "log",
+						   "normal_parabola", "np", "norm_par", "parab", "parabola",
+						   "power", "p", "pow",
+						   "quadratic", "q", "quad",
+						   "trigonometric", "t", "tri", "trig"]
 	
-	if function in available_functions:
-		if function == "constant":
+	if name in available_functions:
+		# constant
+		if name in ["constant", "c", "con"]:
+			name = "constant"
 			value_names = ["c", "x"]
-		elif function == "exponential":
+
+		# exponential
+		elif name in ["exponential", "e", "exp"]:
+			name = "exponential"
 			value_names = ["a"]
-		elif function == "linear":
+
+		# linear
+		elif name in ["linear", "li", "lin"]:
+			name = "linear"
 			value_names = ["m", "b"]
-		elif function == "logarithmic":
+
+		# logarithmic
+		elif name in ["logarithmic", "lo", "log"]:
+			name = "logarithmic"
 			value_names = ["a"]
-		elif function == "normal_parabola":
+
+		# normal parabola
+		elif name in ["normal_parabola", "np", "norm_par", "parab", "parabola"]:
+			name = "normal_parabola"
 			value_names = ["a", "c", "d"]
-		elif function == "power":
+
+		# power
+		elif name in ["power", "p", "pow"]:
+			name = "power"
 			value_names = ["a", "n"]
-		elif function == "quadratic":
+
+		# quadratic
+		elif name in ["quadratic", "q", "quad"]:
+			name = "quadratic"
 			value_names = ["a", "b", "c"]
-		elif function == "trigonometric":
+			
+			#todo
+			"""
+			if d1: 
+				value_names += "x"
+			"""
+			if d1: value_names = []
+
+
+		# trigonometric
+		elif name in ["trigonometric", "t", "tri", "trig"]:
+			name = "trigonometric"
 			value_names = ["cos", "sin", "tan"]
 		
-		sliders = get_slider(value_names, space=space, slider_step=slider_step, startvalue=startvalue)
+		sliders = get_slider(value_names, 
+							 space=space, 
+							 slider_step=slider_step, 
+							 startvalue=startvalue)
 		kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
-		interact(get_function, function=fixed(function), space=fixed(space), **kwargs)
+		interact(get_function, 
+				 name=fixed(name), 
+				 space=fixed(space), 
+				 d1=fixed(d1), 
+				 **kwargs)
 	else:
-		print(f"Function '{function}' is unknown.")
+		print(f"Function '{name}' is unknown.")
+
+
+
+
+
+
+
 

@@ -187,6 +187,8 @@ th, td {
     color: black !important;
 }
 
+/* todo?: #centertable table hinzufügen?*/
+
 #centertable td
 {
     text-align: center; 
