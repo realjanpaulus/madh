@@ -73,7 +73,7 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 
 	if name == "constant" and len(kwargs) > 0:
 		y = constant_function(kwargs["v1"], x)
-		if d1: y1 = constant_function(kwargs["v1"], x)
+		if d1: y1 = constant_function(0, x)
 	elif name == "exponential" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
