@@ -5,17 +5,16 @@ import math
 from matplotlib.ticker import MaxNLocator
 from scipy.misc import derivative
 
-#todo
-from sympy import *
-import sympy as sym
-
 import typing
 from typing import Optional
+from utils import to_int
 import warnings
 
 # ==================== #
 # functional equations #
 # ==================== #
+
+#todo e-function
 
 @np.vectorize
 def constant_function(c, x):
@@ -36,8 +35,7 @@ def normal_parabola(a, c, d, x):
 def power_function(a, n, x):
 	return a * np.power(x, n)
 
-# todo: passt das?
-def quadratic_function(x, a=1, b=2, c=3):
+def quadratic_function(a, b, c, x):
 	return a*(x**2) + (b * x) + c
 
 def trigonometric_function(sct, x):
@@ -53,6 +51,7 @@ def trigonometric_function(sct, x):
 # ================ #
 
 def coordinate_system(ax, neg_dim, pos_dim):
+	"""Plots an cartesian coordinate system."""
 
 	ax.spines['left'].set_position('center')
 	ax.spines['bottom'].set_position('zero')
@@ -70,73 +69,66 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 	""" Computes a function given by name."""
 	
 	x = np.linspace(space[0],space[1],num=100)
+	label = "Funktion"
 
 	if name == "constant" and len(kwargs) > 0:
+		label = f'$f(x) = {{{to_int(kwargs["v1"])}}}$'
 		y = constant_function(kwargs["v1"], x)
-		if d1: y1 = constant_function(0, x)
 	elif name == "exponential" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
+		label = f'${{{to_int(kwargs["v1"])}}}^x$'
 		y = exponential_function(kwargs["v1"], x)
+
 	elif name == "linear" and len(kwargs) > 1:
+		label = f'$f(x) = {{{to_int(kwargs["v1"])}}}x + {{{to_int(kwargs["v2"])}}}$'
 		y = linear_function(kwargs["v1"], kwargs["v2"], x)
-		if d1: y1 = constant_function(kwargs["v1"], x)
 	elif name == "logarithmic" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
 		x = np.linspace(space[0],space[1],num=10000)
+
+		label = f'$f(x) = \\log_{{{to_int(kwargs["v1"])}}} \\: x$'
 		y = logarithmic_function(kwargs["v1"], x)
 	elif name == "normal_parabola" and len(kwargs) > 2:
+		label = f'$f(x) = {{{to_int(kwargs["v1"])}}} + ((x-{{{to_int(kwargs["v3"])}}})^2) + {{{to_int(kwargs["v2"])}}}$'
 		y = normal_parabola(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
 	elif name == "power" and len(kwargs) > 1:
+		label = f'$f(x) = {{{to_int(kwargs["v1"])}}} + x^{{{to_int(kwargs["v2"])}}}$'
 		y = power_function(kwargs["v1"], kwargs["v2"], x)
 	elif name == "quadratic":
-
-		#todo 	and len(kwargs) > 2:
-		#TODO: fixing derivative
-		#TODO: extra slider?
-		#TODO: fixed quadratic function?
-		
-		if d1:
-			
-
-			#y = quadratic_function(x, 1, 2, 3)
-			y = quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"])
-			#y1 = derivative(y, x, dx=1e-06)
-			y1 = np.gradient(y, x)
-
-			"""todo
-			t = Symbol('x') 
-			y = kwargs["v1"]*(x**2) + (kwargs["v2"] * x) + kwargs["v3"]
-			y1 = sym.diff(y, x)
-			print(y1)
-			"""
-
-		else:
-			#todo: geändert reihenfolge
-			y = quadratic_function(x, kwargs["v1"], kwargs["v2"], kwargs["v3"])
-
-
-
+		label = f'$f(x) = {{{to_int(kwargs["v1"])}}}x^2 + {{{to_int(kwargs["v2"])}}}x + {{{to_int(kwargs["v3"])}}}$'
+		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
 	elif name == "trigonometric" and len(kwargs) > 0:
 		x = np.linspace(-10 * np.pi, 10 * np.pi, 1000)
+		mapping = {"Kosinus": "\\cos", 
+				  "Sinus": "\\sin", 
+				  "Tangens": "\\tan"}
+
+		label = f'${{{mapping[kwargs["v1"]]}}} \\: x$'
 		y = trigonometric_function(kwargs["v1"], x)
 	
+
+	# plotting
 	if d1:
-		fig = plt.figure()
+		# first derivative
+		y1 = np.gradient(y, x)
+
+		fig = plt.figure(dpi=100)
 		ax = fig.subplots()
 		coordinate_system(ax, space[0],space[1]) 
-		ax.plot(x, y, x, y1)
-
+		ax.plot(x, y, label=label)
+		#todo?: vllt doch ableitung irgendwie als Formel? vllt als Option wie mit d1?
+		ax.plot(x, y1, label="Erste Ableitung")
+		plt.legend(fancybox=True, framealpha=1.)
 		plt.grid()
 		plt.show()
-	
 	else:
-		fig = plt.figure()
+		fig = plt.figure(dpi=100)
 		ax = fig.add_subplot(1, 1, 1)
 		coordinate_system(ax, space[0],space[1]) 
-		plt.plot(x, y)
-
+		plt.plot(x, y, label=label)
+		plt.legend(fancybox=True, framealpha=1.)
 		plt.grid()
 		plt.show()
 
@@ -242,9 +234,6 @@ def plt_function(name: Optional[str] = "constant",
 			name = "quadratic"
 			value_names = ["a", "b", "c"]
 			
-			#todo
-			#if d1: value_names = []
-
 
 		# trigonometric
 		elif name in ["trigonometric", "t", "tri", "trig"]:
