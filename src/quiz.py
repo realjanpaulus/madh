@@ -135,9 +135,10 @@ def create_quiz(quiz_name: str,
 
 	correct_answer_index = options.index(correct_answer)
 
-	## build clickable radio buttons 
+	## build clickable radio buttons ##
 	
 	options_numbers = [(element, i) for i, element in enumerate(options)]
+
 	# radio_options: ("Option1", 0), ("Option2", 1), ... #
 	radio_options = widgets.RadioButtons(options = options_numbers,
 										 description = '',
