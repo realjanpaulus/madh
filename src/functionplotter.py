@@ -14,7 +14,8 @@ import warnings
 # functional equations #
 # ==================== #
 
-#todo e-function
+def broken_rational_function(a, b, n, m, a0, b0, x):
+	return ((a * np.power(x, n))+a0)/((b * np.power(x, m))+b0)
 
 @np.vectorize
 def constant_function(c, x):
@@ -50,6 +51,7 @@ def trigonometric_function(sct, x):
 # helper functions #
 # ================ #
 
+
 def coordinate_system(ax, neg_dim, pos_dim):
 	"""Plots an cartesian coordinate system."""
 
@@ -71,48 +73,107 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 	x = np.linspace(space[0],space[1],num=100)
 	label = "Funktion"
 
-	if name == "constant" and len(kwargs) > 0:
-		label = f'$f(x) = {{{to_int(kwargs["v1"])}}}$'
-		y = constant_function(kwargs["v1"], x)
+	
+	if name == "broken_rational" and len(kwargs) > 5:
+		# ignoring zero value warnings
+		warnings.filterwarnings("ignore", category=RuntimeWarning) 
+		x = np.linspace(space[0],space[1],num=1000)
+
+		a = to_int(kwargs["v1"])
+		b = to_int(kwargs["v2"])
+		n = to_int(kwargs["v3"])
+		m = to_int(kwargs["v4"])
+		a0 = to_int(kwargs["v5"])
+		b0 = to_int(kwargs["v6"])
+
+		#TODO: das eventuell auch bei anderen funktionen umsetzen.
+		if a == 0:
+			counter = f'{{{a0}}}'
+		elif a == 1:
+			counter = f'x^{{{n}}} + {{{a0}}}'
+		else:
+			counter = f'{{{a}}} \\cdot x^{{{n}}} + {{{a0}}}'
+
+		if b == 0:
+			denominator = f'{{{b0}}}'
+		elif b == 1:
+			denominator = f'x^{{{m}}} + {{{b0}}}'
+		else:
+			denominator = f'{{{b}}} \\cdot x^{{{m}}} + {{{b0}}}'
+		label = f'$f(x) = \\dfrac{{{counter}}}{{{denominator}}}$'
+		y = broken_rational_function(a, b, n, m, a0, b0, x)
+
+		# See: https://stackoverflow.com/questions/36870842/
+		# 	   graphing-any-rational-functions-in-python-considering-the-asymptotes
+		utol = 50.
+		ltol = -50.
+		y[y>utol] = np.nan
+		y[y<ltol] = -np.nan
+	elif name == "constant" and len(kwargs) > 0:
+		c = to_int(kwargs["v1"])
+		label = f'$f(x) = {{{c}}}$'
+		y = constant_function(c, x)
 	elif name == "exponential" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
-		label = f'${{{to_int(kwargs["v1"])}}}^x$'
-		y = exponential_function(kwargs["v1"], x)
-
+		a = to_int(kwargs["v1"])
+		label = f'${{{a}}}^x$'
+		y = exponential_function(a, x)
 	elif name == "linear" and len(kwargs) > 1:
-		label = f'$f(x) = {{{to_int(kwargs["v1"])}}}x + {{{to_int(kwargs["v2"])}}}$'
-		y = linear_function(kwargs["v1"], kwargs["v2"], x)
+		m = to_int(kwargs["v1"])
+		b = to_int(kwargs["v2"])
+		label = f'$f(x) = {{{m}}}x + {{{b}}}$'
+		y = linear_function(m, b, x)
 	elif name == "logarithmic" and len(kwargs) > 0:
 		# ignoring zero value warnings
 		warnings.filterwarnings("ignore", category=RuntimeWarning) 
 		x = np.linspace(space[0],space[1],num=10000)
-
-		label = f'$f(x) = \\log_{{{to_int(kwargs["v1"])}}} \\: x$'
-		y = logarithmic_function(kwargs["v1"], x)
+		a = to_int(kwargs["v1"])
+		label = f'$f(x) = \\log_{{{a}}} \\: x$'
+		y = logarithmic_function(a, x)
 	elif name == "normal_parabola" and len(kwargs) > 2:
-		label = f'$f(x) = {{{to_int(kwargs["v1"])}}} + ((x-{{{to_int(kwargs["v3"])}}})^2) + {{{to_int(kwargs["v2"])}}}$'
-		y = normal_parabola(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+		a = to_int(kwargs["v1"])
+		c = to_int(kwargs["v2"])
+		d = to_int(kwargs["v3"])
+		label = f'$f(x) = {{{a}}} + ((x-{{{d}}})^2) + {{{c}}}$'
+		y = normal_parabola(a, c, d, x)
 	elif name == "power" and len(kwargs) > 1:
-		label = f'$f(x) = {{{to_int(kwargs["v1"])}}} + x^{{{to_int(kwargs["v2"])}}}$'
-		y = power_function(kwargs["v1"], kwargs["v2"], x)
+		x = np.linspace(space[0],space[1],num=1000)
+		a = to_int(kwargs["v1"])
+		n = to_int(kwargs["v2"])
+		label = f'$f(x) = {{{a}}} \\cdot x^{{{n}}}$'
+		y = power_function(a, n, x)
+
+		# See: https://stackoverflow.com/questions/36870842/
+		# 	   graphing-any-rational-functions-in-python-considering-the-asymptotes
+		utol = 50.
+		ltol = -50.
+		y[y>utol] = np.nan
+		y[y<ltol] = -np.nan
 	elif name == "quadratic":
-		label = f'$f(x) = {{{to_int(kwargs["v1"])}}}x^2 + {{{to_int(kwargs["v2"])}}}x + {{{to_int(kwargs["v3"])}}}$'
-		y = quadratic_function(kwargs["v1"], kwargs["v2"], kwargs["v3"], x)
+		a = to_int(kwargs["v1"])
+		b = to_int(kwargs["v2"])
+		c = to_int(kwargs["v3"])
+		label = f'$f(x) = {{{a}}}x^2 + {{{b}}}x + {{{c}}}$'
+		y = quadratic_function(a, b, c, x)
 	elif name == "trigonometric" and len(kwargs) > 0:
 		x = np.linspace(-10 * np.pi, 10 * np.pi, 1000)
-		mapping = {"Kosinus": "\\cos", 
-				  "Sinus": "\\sin", 
-				  "Tangens": "\\tan"}
-
-		label = f'${{{mapping[kwargs["v1"]]}}} \\: x$'
-		y = trigonometric_function(kwargs["v1"], x)
-	
+		mapping = {"Kosinus": "\\cos", "Sinus": "\\sin", "Tangens": "\\tan"}
+		sct = kwargs["v1"]
+		label = f'${{{mapping[sct]}}} \\: x$'
+		y = trigonometric_function(sct, x)
 
 	# plotting
 	if d1:
 		# first derivative
 		y1 = np.gradient(y, x)
+		if name == "trigonometric" and sct == "Tangens":
+			# See: https://stackoverflow.com/questions/36870842/
+			# 	   graphing-any-rational-functions-in-python-considering-the-asymptotes
+			utol = 50.
+			ltol = -50.
+			y1[y1>utol] = np.nan
+			y1[y1<ltol] = -np.nan
 
 		fig = plt.figure(dpi=100)
 		ax = fig.subplots()
@@ -123,6 +184,7 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 		plt.legend(fancybox=True, framealpha=1.)
 		plt.grid()
 		plt.show()
+		
 	else:
 		fig = plt.figure(dpi=100)
 		ax = fig.add_subplot(1, 1, 1)
@@ -154,7 +216,8 @@ def get_slider(value_names: Optional[list] = ["x", "w"],
 										disabled=False,
 										continuous_update=False,
 										orientation='horizontal',
-										readout=True,) for i in ["Funktion"]]
+										readout=True,) 
+				for i in ["Funktion"]]
 	else:	
 		return [widgets.FloatSlider(value=startvalue, 
 									min=space[0], 
@@ -189,7 +252,8 @@ def plt_function(name: Optional[str] = "constant",
 	Returns:
 		None
 	"""
-	available_functions = ["constant", "c", "con",
+	available_functions = ["broken_rational", "broken", "br", "br",
+						   "constant", "c", "con",
 						   "exponential", "e", "exp", 
 						   "linear", "li", "lin",
 						   "logarithmic", "lo", "log",
@@ -199,6 +263,12 @@ def plt_function(name: Optional[str] = "constant",
 						   "trigonometric", "t", "tri", "trig"]
 	
 	if name in available_functions:
+
+		# broken rational
+		if name in ["broken_rational", "broken", "br", "br"]:
+			name = "broken_rational"
+			value_names = ["a", "b", "n", "m", "a0", "b0"]
+
 		# constant
 		if name in ["constant", "c", "con"]:
 			name = "constant"
