@@ -67,7 +67,8 @@ def coordinate_system(ax, neg_dim, pos_dim):
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 
-def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
+def get_function(name = "constant", space=(-10.0, 10.0), 
+				 d1=False, d2=False, d3=False, **kwargs):
 	""" Computes a function given by name."""
 	
 	x = np.linspace(space[0],space[1],num=100)
@@ -86,20 +87,32 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 		a0 = to_int(kwargs["v5"])
 		b0 = to_int(kwargs["v6"])
 
-		#TODO: das eventuell auch bei anderen funktionen umsetzen.
 		if a == 0:
 			counter = f'{{{a0}}}'
 		elif a == 1:
-			counter = f'x^{{{n}}} + {{{a0}}}'
+			if a0 < 0:
+				counter = f'x^{{{n}}} - {{{abs(a0)}}}'
+			else:
+				counter = f'x^{{{n}}} + {{{a0}}}'
 		else:
-			counter = f'{{{a}}} \\cdot x^{{{n}}} + {{{a0}}}'
+			if a0 < 0:
+				counter = f'{{{a}}} \\cdot x^{{{n}}} - {{{abs(a0)}}}'
+			else:
+				counter = f'{{{a}}} \\cdot x^{{{n}}} + {{{a0}}}'
 
 		if b == 0:
 			denominator = f'{{{b0}}}'
 		elif b == 1:
-			denominator = f'x^{{{m}}} + {{{b0}}}'
+			if b0 < 0:
+				denominator = f'x^{{{m}}} - {{{abs(b0)}}}'
+			else:
+				denominator = f'x^{{{m}}} + {{{b0}}}'
 		else:
-			denominator = f'{{{b}}} \\cdot x^{{{m}}} + {{{b0}}}'
+			if b0 < 0:
+				denominator = f'{{{b}}} \\cdot x^{{{m}}} - {{{abs(b0)}}}'
+			else:
+				denominator = f'{{{b}}} \\cdot x^{{{m}}} + {{{b0}}}'
+
 		label = f'$f(x) = \\dfrac{{{counter}}}{{{denominator}}}$'
 		y = broken_rational_function(a, b, n, m, a0, b0, x)
 
@@ -163,7 +176,14 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 		label = f'${{{mapping[sct]}}} \\: x$'
 		y = trigonometric_function(sct, x)
 
-	# plotting
+
+	### plotting ###
+
+	fig = plt.figure(dpi=100)
+	ax = fig.subplots()
+	coordinate_system(ax, space[0],space[1]) 
+	ax.plot(x, y, label=label)
+
 	if d1:
 		# first derivative
 		y1 = np.gradient(y, x)
@@ -175,24 +195,43 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, **kwargs):
 			y1[y1>utol] = np.nan
 			y1[y1<ltol] = -np.nan
 
-		fig = plt.figure(dpi=100)
-		ax = fig.subplots()
-		coordinate_system(ax, space[0],space[1]) 
-		ax.plot(x, y, label=label)
-		#todo?: vllt doch ableitung irgendwie als Formel? vllt als Option wie mit d1?
 		ax.plot(x, y1, label="Erste Ableitung")
-		plt.legend(fancybox=True, framealpha=1.)
-		plt.grid()
-		plt.show()
 		
-	else:
-		fig = plt.figure(dpi=100)
-		ax = fig.add_subplot(1, 1, 1)
-		coordinate_system(ax, space[0],space[1]) 
-		plt.plot(x, y, label=label)
-		plt.legend(fancybox=True, framealpha=1.)
-		plt.grid()
-		plt.show()
+	if d2:
+		# first derivative
+		y1 = np.gradient(y, x)
+		# second derivative
+		y2 = np.gradient(y1, x)
+		if name == "trigonometric" and sct == "Tangens":
+			# See: https://stackoverflow.com/questions/36870842/
+			# 	   graphing-any-rational-functions-in-python-considering-the-asymptotes
+			utol = 50.
+			ltol = -50.
+			y2[y2>utol] = np.nan
+			y2[y2<ltol] = -np.nan
+
+		ax.plot(x, y2, label="Zweite Ableitung")
+
+	if d3:
+		# first derivative
+		y1 = np.gradient(y, x)
+		# second derivative
+		y2 = np.gradient(y1, x)
+		# third derivative
+		y3 = np.gradient(y2, x)
+		if name == "trigonometric" and sct == "Tangens":
+			# See: https://stackoverflow.com/questions/36870842/
+			# 	   graphing-any-rational-functions-in-python-considering-the-asymptotes
+			utol = 50.
+			ltol = -50.
+			y3[y3>utol] = np.nan
+			y3[y3<ltol] = -np.nan
+
+		ax.plot(x, y3, label="Dritte Ableitung")
+		
+	plt.legend(fancybox=True, framealpha=1.)
+	plt.grid()
+	plt.show()
 
 		
 def get_slider(value_names: Optional[list] = ["x", "w"], 
@@ -240,7 +279,9 @@ def plt_function(name: Optional[str] = "constant",
 				 space: Optional[tuple] = (-10.0, 10.0), 
 				 slider_step: Optional[float] = 1.0,
 				 startvalue: Optional[float] = 0,
-				 d1: Optional[bool] = False) -> None:
+				 d1: Optional[bool] = False,
+				 d2: Optional[bool] = False,
+				 d3: Optional[bool] = False,) -> None:
 	""" Plot function by function name. 
 
 	Args:
@@ -249,6 +290,8 @@ def plt_function(name: Optional[str] = "constant",
 		slider_step: value for slider steps.
 		startvalue: starting value for the slider steps.
 		d1: True for plotting the first derivative.
+		d2: True for plotting the second derivative.
+		d3: True for plotting the third derivative.
 	Returns:
 		None
 	"""
@@ -319,6 +362,8 @@ def plt_function(name: Optional[str] = "constant",
 				 name=fixed(name), 
 				 space=fixed(space), 
 				 d1=fixed(d1), 
+				 d2=fixed(d2), 
+				 d3=fixed(d3), 
 				 **kwargs)
 	else:
 		print(f"Function '{name}' is unknown.")

@@ -59,11 +59,11 @@ div.warn {
 }
 
 img.icon {
-  width: 15px;
-  height: 15px;
   display: inline-block; 
-  margin-right: 10px;
-  margin-bottom: 5px;
+  width: 18px;
+  height: 18px;
+  margin-right: 7px;
+  margin-bottom: 3px;
 }
 
 span.invisible_border {
