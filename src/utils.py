@@ -38,6 +38,7 @@ def hide_code():
 	display(HTML(toggle_code_prepare_str + toggle_code_str))
 
 
+
 def to_int(n):
 	""" Checks if float is integer and converts it if necessary."""
 	if n.is_integer():
