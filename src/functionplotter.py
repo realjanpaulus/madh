@@ -24,6 +24,11 @@ def constant_function(c, x):
 def exponential_function(a, x):
 	return np.power(a, x)
 
+def irrational_function(n, a, x):
+	if n == 0:
+		n = n + 0.0001
+	return a*x**(1/float(n))
+
 def linear_function(m, b, x):
 	return m*x + b
 
@@ -132,6 +137,21 @@ def get_function(name = "constant", space=(-10.0, 10.0),
 		a = to_int(kwargs["v1"])
 		label = f'${{{a}}}^x$'
 		y = exponential_function(a, x)
+	elif name == "irrational" and len(kwargs) > 1:
+		# ignoring zero value warnings
+		warnings.filterwarnings("ignore", category=RuntimeWarning) 
+		x = np.linspace(space[0],space[1],num=10000)
+		n = to_int(kwargs["v1"])
+		a = to_int(kwargs["v2"])
+		label = f'$\\sqrt[{n}]{{{{{a}}} \\cdot x}}$'
+		y = irrational_function(n, a, x)
+
+		# See: https://stackoverflow.com/questions/36870842/
+		# 	   graphing-any-rational-functions-in-python-considering-the-asymptotes
+		utol = 50.
+		ltol = -50.
+		y[y>utol] = np.nan
+		y[y<ltol] = -np.nan
 	elif name == "linear" and len(kwargs) > 1:
 		m = to_int(kwargs["v1"])
 		b = to_int(kwargs["v2"])
@@ -298,6 +318,7 @@ def plt_function(name: Optional[str] = "constant",
 	available_functions = ["broken_rational", "broken", "br", "br",
 						   "constant", "c", "con",
 						   "exponential", "e", "exp", 
+						   "irrational", "i", "root", "r",
 						   "linear", "li", "lin",
 						   "logarithmic", "lo", "log",
 						   "normal_parabola", "np", "norm_par", "parab", "parabola",
@@ -321,6 +342,11 @@ def plt_function(name: Optional[str] = "constant",
 		elif name in ["exponential", "e", "exp"]:
 			name = "exponential"
 			value_names = ["a"]
+
+		# irrational / root
+		elif name in ["irrational", "i", "root", "r"]:
+			name = "irrational"
+			value_names = ["n", "a"]
 
 		# linear
 		elif name in ["linear", "li", "lin"]:
