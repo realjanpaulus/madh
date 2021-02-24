@@ -130,7 +130,7 @@ dmypy.json
 
 # my dir
 
-old_files/
+old/
 Literatur/
 Calculus/old/
 state/

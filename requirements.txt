@@ -3,3 +3,4 @@ typing
 ipython
 numpy
 matplotlib
+scipy
