@@ -1,0 +1,58 @@
+{
+	"cquiz_52_1": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $f(x) = (x^2+3) \\cdot (8x-1) \\cdot (x^3+x)$.",
+		"options": {
+			"a" : "Achten Sie beim Ableiten darauf, wirklich alle x abzuleiten.", 
+	 		"b" : "Achten Sie beim Ableiten auf die Vorzeichen.", 
+	  		"c" : "Richtig.", 
+	  		"d" : "Achten Sie beim Ableiten auf die Vorzeichen."
+	  	},
+		"correct_answer": "c"
+	},
+	"cquiz_52_2": {
+		"description": "Bilden Sie die zweite Ableitung der Funktion $f(x) = x \\cdot (x-2)^2$.",
+		"options": {
+			"a" : "Bilden Sie bitte die zweite Ableitung von f(x).", 
+	 		"b" : "Achten Sie beim Ableiten auf die Vorzeichen.", 
+	  		"c" : "Richtig.", 
+	  		"d" : "Achten Sie beim Ableiten auf die Vorzeichen.",
+	  		"e" : "Achten Sie beim Ableiten darauf, nicht die Zahlen der einzelnen Glieder zu vertauschen."
+	  	},
+		"correct_answer": "c"
+	},
+	"cquiz_52_3": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $f(x)=\\frac{x^3+8x}{4}$",
+		"options": {
+			"a" : "Richtig.", 
+	 		"b" : "Achten Sie beim Ableiten des Nenners darauf, dass dieser quadriert wird.", 
+	  		"c" : "Achten Sie darauf, dass Sie den Nenner richtig ableiten.", 
+	  		"d" : "Achten Sie beim Ableiten des Nenners darauf, dass dieser quadriert wird und klammern Sie richtig aus."
+	  	},
+		"correct_answer": "a"
+	},
+	"cquiz_52_4": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $f(x) = (x^3-6x)^4$",
+		"options": {
+			"a" : "Achten Sie beim Ableiten auf die Vorzeichen.", 
+	 		"b" : "Achten Sie beim Ableiten auf die Vorzeichen.", 
+	  		"c" : "Achten Sie bei der Ableitung darauf, kein x zu übersehen.", 
+	  		"d" : "Richtig. Der Ausdruck wurde noch zusammengefasst."
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_52_5": {
+		"description": "Bilden Sie die zweite Ableitung der Funktion $f(x) = 2(3x^2 -x + 5)^2$",
+		"options": {
+			"a" : "Richtig. Der Ausdruck wurde noch zusammengefasst.", 
+	 		"b" : "Achten Sie beim Ableiten auf die Vorzeichen.", 
+	  		"c" : "Bilden Sie bitte die zweite Ableitung von f(x).", 
+	  		"d" : "Achten Sie beim Ableiten auf die Vorzeichen.",
+	  		"e" : "Achten Sie beim Ableiten auf die Vorzeichen."
+	  	},
+		"correct_answer": "a"
+	}
+
+
+
+	
+}
