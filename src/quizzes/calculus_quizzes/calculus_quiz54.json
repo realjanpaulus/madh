@@ -1,0 +1,26 @@
+{
+	"cquiz_54_1": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $f(x) = \\sqrt{8x^2} \\cdot \\log_4(x^3)$.",
+		"options": {
+			"a" : "", 
+	 		"b" : "Sie haben den Logarithmus nicht richtig abgeleitet.", 
+	  		"c" : "Sie haben die Wurzel nicht richtig abgeleitet.", 
+	  		"d" : "Sie haben den Logarithmus und die Wurzel nicht richtig abgeleitet.",
+	  		"e" : "Sie haben den Logarithmus nicht richtig abgeleitet.", 
+	  		"f" : "Sie haben den Logarithmus und die Wurzel nicht richtig abgeleitet."
+	  	},
+		"correct_answer": "a"
+	},
+	"cquiz_54_2": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $f(x) = \\dfrac{\\sin(3x^6+4x)}{e^{8x}}$. <u>Hinweis</u>: Brüche müssen nicht unbedingt mit der Quotientenregel abgeleitet werden, ein Bruch kann auch in eine Potenz umgewandelt werden: $\\frac{2}{x} = 2x^{-2}$.",
+		"options": {
+			"a" : "Überprüfen Sie, ob Sie Sinus überall richtig abgeleitet haben.", 
+	 		"b" : "Ein Vorzeichen ist falsch.", 
+	  		"c" : "Ein Vorzeichen ist falsch.", 
+	  		"d" : "Ihre Lösung hat ein x zu viel.",
+	  		"e" : "Ein Vorzeichen ist falsch.",
+	  		"f" : ""
+	  	},
+		"correct_answer": "f"
+	}
+}

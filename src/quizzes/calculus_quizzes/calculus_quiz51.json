@@ -4,7 +4,7 @@
 		"options": {
 			"a" : "Achten Sie beim Ableiten darauf, dass sie das Vorzeichen von n (= Exponenten von x) nicht ändern.", 
 	 		"b" : "Achten Sie beim Ableiten darauf, dass sie n (= dem Exponenten von x) um 1 verringern und nicht um 1 erhöhen.", 
-	  		"c" : "Richtig.", 
+	  		"c" : "", 
 	  		"d" : "Konstanen werden beim Ableiten zu 0.",
 	  		"e" : "Achten Sie beim Ableiten darauf, dass sie das Vorzeichen von n (= Exponenten von x) nicht ändern und der Exponent um 1 verringert und nicht vergrößert wird."
 	  	},
@@ -15,7 +15,7 @@
 		"options": {
 			"a" : "Dies ist nur die erste Ableitung. Sie müssen diese Funktion noch einmal ableiten.", 
 	 		"b" : "Schauen Sie sich noch einmal den Exponenten des x des ersten Glieds an.", 
-	  		"c" : "Richtig.", 
+	  		"c" : "", 
 	  		"d" : "Schauen Sie sich noch einmal die Ableitung des zweiten Glieds an.",
 	  		"e" : "Schauen Sie sich noch einmal die Ableitung des dritten Glieds an."
 	  	},
@@ -27,24 +27,24 @@
 			"a" : "Dies ist die vierte Ableitung.", 
 	 		"b" : "Gucken Sie sich die Vorzeichen noch einmal an.", 
 	  		"c" : "Gucken Sie sich die Vorzeichen noch einmal an.", 
-	  		"d" : "Richtig."
+	  		"d" : ""
 	  	},
 		"correct_answer": "d"
 	},
 	"cquiz_51_4": {
 		"description": "Bilden Sie die zehnte Ableitung der Funktion $f(x) = 22x^{9} + 0.5x^{7} - 7x^{4}$.",
 		"options": {
-			"a" : "Richtig. Da die Exponenten jedes x bei jeder weiteren Ableitung um 1 verringert wird, ist irgendwann jeder Exponent 0, wodurch das ganze Glied zu 0 wird, da $x^0 = 0$.", 
-	 		"b" : "Falsch.", 
-	  		"c" : "Falsch.", 
-	  		"d" : "Falsch."
+			"a" : "Da die Exponenten jedes x bei jeder weiteren Ableitung um 1 verringert wird, ist irgendwann jeder Exponent 0, wodurch das ganze Glied zu 0 wird, da $x^0 = 0$.", 
+	 		"b" : "", 
+	  		"c" : "", 
+	  		"d" : ""
 	  	},
 		"correct_answer": "a"
 	},
 	"cquiz_51_5": {
 		"description": "Gegeben ist die erste Ableitung $f'(x) = 2x^4 -x^2$. Leiten Sie daraus die Funktion $f(x)$ her.",
 		"options": {
-			"a" : "Richtig.", 
+			"a" : "", 
 	 		"b" : "Schauen Sie sich die Vorzeichen noch einmal genauer an.", 
 	  		"c" : "Schauen Sie sich die Vorzeichen noch einmal genauer an.", 
 	  		"d" : "Schauen Sie sich die Exponenten und Vorzeichen noch einmal genauer an.",

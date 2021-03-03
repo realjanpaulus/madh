@@ -1,0 +1,42 @@
+{
+	"cquiz_53_1": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $f(x) = 2e^{x^2-4}$.",
+		"options": {
+			"a" : "Achten Sie beim Ableiten darauf, den konstanten Faktor mit abzuleiten und wenden Sie die Kettenregel korrekt an.", 
+	 		"b" : "Achten Sie darauf, dass Sie die Kettenregel korrekt anwenden.", 
+	  		"c" : "Achten Sie beim Ableiten darauf, den konstanten Faktor mit abzuleiten.", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_53_2": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $\\sin^4(x)$.",
+		"options": {
+			"a" : "Achten Sie darauf, dass Sie die Kettenregel korrekt anwenden.", 
+	 		"b" : "", 
+	  		"c" : "Achten Sie darauf, dass Sie die Kettenregel korrekt anwenden.", 
+	  		"d" : "Achten Sie darauf, dass Sie die Kettenregel korrekt anwenden."
+	  	},
+		"correct_answer": "b"
+	},
+	"cquiz_53_3": {
+		"description": "Bilden Sie die erste Ableitung der Funktion $e^{\\cos(5x^2)}$. Beachten Sie, dass Sie die Kettenregel <u>zweimal</u> anwenden müssen, d.h. Sie brauchen $g(h)$, $h(k)$ und $k(x)$.",
+		"options": {
+			"a" : "Beachten Sie die korrekte Wahl der Vorzeichen und leiten Sie Cosinus richtig ab.", 
+	 		"b" : "Leiten Sie Cosinus richtig ab.", 
+	  		"c" : "Beachten Sie die korrekte Wahl der Vorzeichen.", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_53_4": {
+		"description": "Bilden Sie die zweite Ableitung der Funktion $2 \\cdot \\log_3(x)$.",
+		"options": {
+			"a" : "Beachten Sie die korrekte Anwendung der Faktorregel.", 
+	 		"b" : "Beachten Sie die korrekte Wahl der Vorzeichen und die korrekte Anwendung der Faktorregel.", 
+	  		"c" : "", 
+	  		"d" : "Beachten Sie die korrekte Wahl der Vorzeichen."
+	  	},
+		"correct_answer": "c"
+	}
+}
