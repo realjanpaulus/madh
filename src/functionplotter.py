@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 from matplotlib.ticker import MaxNLocator
+from mpl_toolkits.mplot3d import axes3d
 from scipy.misc import derivative
 
 import typing
@@ -13,6 +14,7 @@ import warnings
 # ==================== #
 # functional equations #
 # ==================== #
+
 
 def broken_rational_function(a, b, n, m, a0, b0, x):
 	return ((a * np.power(x, n))+a0)/((b * np.power(x, m))+b0)
@@ -34,6 +36,18 @@ def linear_function(m, b, x):
 
 def logarithmic_function(a, x):
 	return np.log(x) / np.log(a)
+
+
+def multivariate_function1(x, y):
+	return x*y
+
+def multivariate_function2(x, y):
+	part1 = 3*((1-x)**2)
+	part2 = np.exp(-(x**2)-((y+1)**2))
+	part3 = 10*((x/5) -(x**3) -(y**5))
+	part4 = np.exp(-(x**2)-(y**2))
+	part5 = np.exp(-(x+1)**2-(y**2))
+	return (part1 * part2) - (part3 * part4) - ((1/3) * part5)
 
 def normal_parabola(a, c, d, x):
 	return a*((x-d)**2) + c
@@ -72,13 +86,53 @@ def coordinate_system(ax, neg_dim, pos_dim):
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 
-def get_function(name = "constant", space=(-10.0, 10.0), 
-				 d1=False, d2=False, d3=False, **kwargs):
+def get_3D_function(name = "multivariate1", space=(-10.0, 10.0), contour_plot=False):
+	""" Computes a 3D function given by name."""
+
+	x = np.linspace(space[0],space[1],num=100)
+	y = np.linspace(space[0],space[1],num=100)
+	label = "Funktion"
+
+	X, Y = np.meshgrid(x, y)
+
+	if name == "multivariate1":
+		zs = np.array([multivariate_function1(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
+		Z = zs.reshape(X.shape)
+		label = "$f(x,y) = x \\cdot y$"
+	elif name == "multivariate2":
+		zs = np.array([multivariate_function2(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
+		Z = zs.reshape(X.shape)
+		label = "$f(x,y) = 3(1-x)^{2} \\cdot e^{(-x^{2} - (y+1)^{2})} -10(\\frac{x}{5}-x^{3}-y^{5}) \\cdot e^{(-x^{2}-y^{2})}-\\frac{1}{3}\\cdot e^{-(x+1)^{2}-y^{2}}$"
+	
+
+	if contour_plot == True:
+		X, Y = np.meshgrid(x, y)
+		Z = multivariate_function2(X,Y)
+		fig, ax = plt.subplots(dpi=100)
+		plt.contour(X, Y, Z, 15, colors="black", linewidths=0.5)
+		plt.contourf(X, Y, Z, 15, cmap="viridis")
+		plt.colorbar()
+		plt.title(label)
+		plt.show()
+	else:
+		fig = plt.figure(dpi=100)
+		ax = fig.add_subplot(111, projection='3d')
+		ax.plot_surface(X, Y, Z, cmap="viridis")
+
+		ax.set_xlabel('x-Achse')
+		ax.set_ylabel('y-Achse')
+		ax.set_zlabel('z-Achse')
+
+		plt.title(label)
+		plt.grid()
+		plt.show()
+
+
+def get_function(name = "constant", space=(-10.0, 10.0), d1=False, d2=False, d3=False, **kwargs):
 	""" Computes a function given by name."""
 	
 	x = np.linspace(space[0],space[1],num=100)
 	label = "Funktion"
-
 	
 	if name == "broken_rational" and len(kwargs) > 5:
 		# ignoring zero value warnings
@@ -254,10 +308,7 @@ def get_function(name = "constant", space=(-10.0, 10.0),
 	plt.show()
 
 		
-def get_slider(value_names: Optional[list] = ["x", "w"], 
-			   space: Optional[tuple] = (-10.0, 10.0), 
-			   slider_step: Optional[float] = 1.0,
-			   startvalue: Optional[int] = 0) -> list:
+def get_slider(value_names: Optional[list] = ["x", "w"], space: Optional[tuple] = (-10.0, 10.0), slider_step: Optional[float] = 1.0, startvalue: Optional[int] = 0) -> list:
 	""" Returns a slider element in a list for every value in value_names.
 
 	Args:
@@ -296,12 +347,14 @@ def get_slider(value_names: Optional[list] = ["x", "w"],
 # =================== #
 
 def plt_function(name: Optional[str] = "constant", 
-				 space: Optional[tuple] = (-10.0, 10.0), 
-				 slider_step: Optional[float] = 1.0,
-				 startvalue: Optional[float] = 0,
-				 d1: Optional[bool] = False,
-				 d2: Optional[bool] = False,
-				 d3: Optional[bool] = False,) -> None:
+	space: Optional[tuple] = (-10.0, 10.0), 
+	slider_step: Optional[float] = 1.0, 
+	startvalue: Optional[float] = 0, 
+	d1: Optional[bool] = False, 
+	d2: Optional[bool] = False, 
+	d3: Optional[bool] = False,
+	use_3D: Optional[bool] = False,
+	contour_plot: Optional[bool] = False) -> None:
 	""" Plot function by function name. 
 
 	Args:
@@ -312,6 +365,8 @@ def plt_function(name: Optional[str] = "constant",
 		d1: True for plotting the first derivative.
 		d2: True for plotting the second derivative.
 		d3: True for plotting the third derivative.
+		use_3D: True for plotting 3D plots.
+		contour_plot: True for plotting a contour plot. 'use_3D' must also be True.
 	Returns:
 		None
 	"""
@@ -325,6 +380,8 @@ def plt_function(name: Optional[str] = "constant",
 						   "power", "p", "pow",
 						   "quadratic", "q", "quad",
 						   "trigonometric", "t", "tri", "trig"]
+
+	available_3D_functions = ["multivariate1", "multi1", "multivariate2", "multi2"]
 	
 	if name in available_functions:
 
@@ -391,6 +448,9 @@ def plt_function(name: Optional[str] = "constant",
 				 d2=fixed(d2), 
 				 d3=fixed(d3), 
 				 **kwargs)
+	
+	elif name in available_3D_functions:
+		get_3D_function(name = name, space=space, contour_plot=contour_plot)
 	else:
 		print(f"Function '{name}' is unknown.")
 

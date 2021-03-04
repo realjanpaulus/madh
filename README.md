@@ -44,6 +44,7 @@ typing
 ipython
 numpy
 matplotlib
+mpl_toolkits
 scipy
 ```
 

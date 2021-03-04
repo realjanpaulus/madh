@@ -1,12 +1,42 @@
 {
-	"cquiz__1": {
-		"description": "Bilden Sie die dritte Ableitung der Funktion $$.",
+	"cquiz_61_1": {
+		"description": "Bilden Sie die partielle Ableitung erster Ordnung $\\frac{\\partial f}{\\partial y}$ der Funktion $f(x,y,z) = 33x^{34} \\log_7(y) + 2z^{4z^2-3z+5}$ nach $y$.",
 		"options": {
-			"" : "", 
-	 		"" : "", 
-	  		"" : "", 
-	  		"" : ""
+			"a" : "Nach x sollte nicht abgeleitet werden, es bleibt als konstanter Faktor gleich.", 
+	 		"b" : "", 
+	  		"c" : "Sie haben den natürlichen Logarithmus falsch abgeleitet.", 
+	  		"d" : "Sie haben den natürlichen Logarithmus falsch abgeleitet. Zudem sollte nach x nicht abgeleitet werden, es bleibt als konstanter Faktor gleich."
 	  	},
-		"correct_answer": ""
+		"correct_answer": "b"
+	},
+	"cquiz_61_2": {
+		"description": "Bilden Sie die partielle Ableitung zweiter Ordnung $\\frac{\\partial^2 f}{\\partial x}$ der Funktion $f(x,y,z) = e^{2x} \\sin(y) z^2 + \\cos(z) e^x e^y$, jeweils nach $x$.",
+		"options": {
+			"a" : "Sie haben die partielle Ableitung erster Ordnung, nicht zweiter Ordnung berechnet.", 
+	 		"b" : "", 
+	  		"c" : "Sie haben die partielle Ableitung erster Ordnung, nicht zweiter Ordnung berechnet. Zudem haben Sie im zweiten Summanden y und z nicht als konstante Faktoren behandelt.", 
+	  		"d" : "Sie haben im zweiten Summanden y und z nicht als konstante Faktoren behandelt."
+	  	},
+		"correct_answer": "b"
+	},
+	"cquiz_61_3": {
+		"description": "Bilden Sie die partiellen Ableitungen erster Ordnung $\\frac{\\partial f}{\\partial x}$, $\\frac{\\partial f}{\\partial y}$, $\\frac{\\partial f}{\\partial z}$ der Funktion $f(x,y,z) = x^2y + y^2z + z^2x$ für $x$, $y$ und $z$.",
+		"options": {
+			"a" : "Die partielle Ableitung nach x ist falsch.", 
+	 		"b" : "Die partielle Ableitung nach z ist falsch.", 
+	  		"c" : "Alle partiellen Ableitungen sind falsch.", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_61_4": {
+		"description": "Bilden Sie die partiellen Ableitungen erster Ordnung $\\frac{\\partial f}{\\partial x}$, $\\frac{\\partial f}{\\partial y}$, $\\frac{\\partial f}{\\partial z}$ der Funktion $f(x,y,z) = \\sin(x) \\cdot e^{yz^2}$ für $x$, $y$ und $z$.",
+		"options": {
+			"a" : "", 
+	 		"b" : "Die partielle Ableitung nach y ist falsch.", 
+	  		"c" : "Die partielle Ableitung nach z ist falsch.", 
+	  		"d" : "Die partielle Ableitung nach x ist falsch."
+	  	},
+		"correct_answer": "a"
 	}
 }
