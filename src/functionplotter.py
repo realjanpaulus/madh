@@ -37,9 +37,8 @@ def linear_function(m, b, x):
 def logarithmic_function(a, x):
 	return np.log(x) / np.log(a)
 
-
 def multivariate_function1(x, y):
-	return x*y
+	return (x**2) + y
 
 def multivariate_function2(x, y):
 	part1 = 3*((1-x)**2)
@@ -48,6 +47,15 @@ def multivariate_function2(x, y):
 	part4 = np.exp(-(x**2)-(y**2))
 	part5 = np.exp(-(x+1)**2-(y**2))
 	return (part1 * part2) - (part3 * part4) - ((1/3) * part5)
+
+def multivariate_function3(x, y):
+	return np.exp(-2*(x**2 + y**2))
+
+def multivariate_function4(x, y):
+	return x**2 + y**2
+
+def multivariate_function5(x, y):
+	return x**2 - y**2
 
 def normal_parabola(a, c, d, x):
 	return a*((x-d)**2) + c
@@ -86,43 +94,64 @@ def coordinate_system(ax, neg_dim, pos_dim):
 	ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 
-def get_3D_function(name = "multivariate1", space=(-10.0, 10.0), contour_plot=False):
+def get_3D_function(name = "multivariate1", space=(-10.0, 10.0), contour_plot=False, 
+	plot_3D_graph=True, vector_points=[]):
 	""" Computes a 3D function given by name."""
 
 	x = np.linspace(space[0],space[1],num=100)
 	y = np.linspace(space[0],space[1],num=100)
 	label = "Funktion"
+	fontsize = 12
 
 	X, Y = np.meshgrid(x, y)
 
 	if name == "multivariate1":
 		zs = np.array([multivariate_function1(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
 		Z = zs.reshape(X.shape)
-		label = "$f(x,y) = x \\cdot y$"
+		label = "$f(x,y) = x^2 + y$"
 	elif name == "multivariate2":
 		zs = np.array([multivariate_function2(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
 		Z = zs.reshape(X.shape)
 		label = "$f(x,y) = 3(1-x)^{2} \\cdot e^{(-x^{2} - (y+1)^{2})} -10(\\frac{x}{5}-x^{3}-y^{5}) \\cdot e^{(-x^{2}-y^{2})}-\\frac{1}{3}\\cdot e^{-(x+1)^{2}-y^{2}}$"
-	
+		fontsize = 10
+	elif name == "multivariate3":
+		zs = np.array([multivariate_function3(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
+		Z = zs.reshape(X.shape)
+		label = "$f(x,y) = e^{-(x^2+y^2)}$"
+	elif name == "multivariate4":
+		zs = np.array([multivariate_function4(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
+		Z = zs.reshape(X.shape)
+		label = "$f(x,y) = x^2 + y^2$"
+	elif name == "multivariate5":
+		zs = np.array([multivariate_function5(x,y) for x,y in zip(np.ravel(X), np.ravel(Y))])
+		Z = zs.reshape(X.shape)
+		label = "$f(x,y) = x^2 - y^2$"
 
 	if contour_plot == True:
-		X, Y = np.meshgrid(x, y)
-		Z = multivariate_function2(X,Y)
 		fig, ax = plt.subplots(dpi=100)
 		plt.contour(X, Y, Z, 15, colors="black", linewidths=0.5)
 		plt.contourf(X, Y, Z, 15, cmap="viridis")
 		plt.colorbar()
-		plt.title(label)
+		plt.title(label, fontsize=fontsize)
 		plt.show()
 	else:
 		fig = plt.figure(dpi=100)
 		ax = fig.add_subplot(111, projection='3d')
-		ax.plot_surface(X, Y, Z, cmap="viridis")
+
+		if plot_3D_graph:
+			ax.plot_surface(X, Y, Z, cmap="viridis")
 
 		ax.set_xlabel('x-Achse')
 		ax.set_ylabel('y-Achse')
 		ax.set_zlabel('z-Achse')
 
+
+		if vector_points:
+			colors = ["red", "violet", "darkorange", "lime", "blue", "orangered"]
+			for idx, p in enumerate(vector_points):
+				ax.quiver(*p, color=colors[idx], label=f"$\\nabla f (p{{{idx+1}}})$")
+
+			plt.legend()
 		plt.title(label)
 		plt.grid()
 		plt.show()
@@ -353,8 +382,9 @@ def plt_function(name: Optional[str] = "constant",
 	d1: Optional[bool] = False, 
 	d2: Optional[bool] = False, 
 	d3: Optional[bool] = False,
-	use_3D: Optional[bool] = False,
-	contour_plot: Optional[bool] = False) -> None:
+	plot_3D_graph: Optional[bool] = False,
+	contour_plot: Optional[bool] = False,
+	vector_points: Optional[list] = []) -> None:
 	""" Plot function by function name. 
 
 	Args:
@@ -365,8 +395,9 @@ def plt_function(name: Optional[str] = "constant",
 		d1: True for plotting the first derivative.
 		d2: True for plotting the second derivative.
 		d3: True for plotting the third derivative.
-		use_3D: True for plotting 3D plots.
+		plot_3D_graph: True for plotting 3D plots.
 		contour_plot: True for plotting a contour plot. 'use_3D' must also be True.
+		vector_points: List of vector coordinates for 3D plot.
 	Returns:
 		None
 	"""
@@ -381,7 +412,7 @@ def plt_function(name: Optional[str] = "constant",
 						   "quadratic", "q", "quad",
 						   "trigonometric", "t", "tri", "trig"]
 
-	available_3D_functions = ["multivariate1", "multi1", "multivariate2", "multi2"]
+	available_3D_functions = ["multivariate1", "multi1", "multivariate2", "multi2", "multivariate3", "multi3", "multivariate4", "multi4", "multivariate5", "multi5"]
 	
 	if name in available_functions:
 
@@ -450,7 +481,8 @@ def plt_function(name: Optional[str] = "constant",
 				 **kwargs)
 	
 	elif name in available_3D_functions:
-		get_3D_function(name = name, space=space, contour_plot=contour_plot)
+		get_3D_function(name = name, space=space, plot_3D_graph = plot_3D_graph, 
+			contour_plot=contour_plot, vector_points=vector_points)
 	else:
 		print(f"Function '{name}' is unknown.")
 
