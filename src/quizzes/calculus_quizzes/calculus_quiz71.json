@@ -1,0 +1,54 @@
+{
+	"cquiz_71_1": {
+		"description": "Berechnen Sie den Gradienten für die Funktion $f(x,y,z) = e^x \\cos(y) + x^2 y^2 z^2$.",
+		"options": {
+			"a" : "", 
+	 		"b" : "Der letzte Eintrag wurde falsch abgeleitet.", 
+	  		"c" : "Der erste Eintrag wurde falsch abgeleitet.", 
+	  		"d" : "Der zweite Eintrag wurde falsch abgeleitet."
+	  	},
+		"correct_answer": "a"
+	},
+	"cquiz_71_2": {
+		"description": "Berechnen Sie den Gradienten für die Funktion $f(x,y,z) = x^2 + 3e^ye^z + \\cos(x)\\sin(z)$ und geben Sie den Gradientenvektor des Punkts $P(0|0|0)$ an.",
+		"options": {
+			"a" : "Die Nullstelle von Sinus ist nicht korrekt berechnet worden.", 
+	 		"b" : "", 
+	  		"c" : "Die Potenz von e ist nicht korrekt berechnet worden.", 
+	  		"d" : "Die Nullstelle von Cosinus ist nicht korrekt berechnet worden.",
+	  		"e" : "Die Nullstelle von Cosinus und die Potenz von e sind nicht korrekt berechnet worden."
+	  	},
+		"correct_answer": "b"
+	},
+	"cquiz_71_3": {
+		"description": "Berechnen Sie die Jacobi-Matrix für die Funktion $f(x,y) = \\begin{pmatrix}x^2-y^2 \\\\ 2xy \\end{pmatrix}$.",
+		"options": {
+			"a" : "", 
+	 		"b" : "", 
+	  		"c" : "", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_71_4": {
+		"description": "Berechnen Sie die Jacobi-Matrix für die Funktion $f(x,y,z) = \\begin{pmatrix}9x^2y^2+ze^x \\\\ xy + x^2y^3 + 2z \\\\ \\cos(x) \\sin(z) e^y \\end{pmatrix}$ und geben Sie die Matrix für den Punkt $P(0|0|0)$ an.",
+		"options": {
+			"a" : "Die Nullstelle von Cosinus ist nicht korrekt berechnet worden.", 
+	 		"b" : "Die Nullstelle von Cosinus ist nicht korrekt berechnet worden.", 
+	  		"c" : "Die Potenz von e ist nicht korrekt berechnet worden.", 
+	  		"d" : "",
+	  		"e" : "In der zweiten Zeile ist Ihnen ein Fehler unterlaufen."
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_71_5": {
+		"description": "Berechne Sie die Hesse-Matrix für die Funktion $f(x,y) = x^3y + x2y$. <u>Tipp</u>: Berechnen Sie vorher den Gradienten.",
+		"options": {
+			"a" : "", 
+	 		"b" : "", 
+	  		"c" : "", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "a"
+	}
+}
