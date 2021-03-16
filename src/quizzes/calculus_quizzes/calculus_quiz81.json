@@ -1,0 +1,22 @@
+{
+	"cquiz_81_1": {
+		"description": "Bilden Sie mithilfe der multivariaten Kettenregel die Ableitung der Funktion $\\frac{\\partial f}{\\partial t}$. Gegeben sind die folgenden Funktionen:<br><br> $f(\\mathbf{x}) = f(x_1, x_2, x_3) = x_1^3\\cos(x_2)e^{x_3}$ <br><br> $x_1(t) = 2t$ <br> $x_2(t) = 1-t^2$ <br> $x_3(t) = e^t$",
+		"options": {
+			"a" : "", 
+	 		"b" : "Der zweite Faktor wurde falsch abgeleitet.", 
+	  		"c" : "Der erste Faktor wurde falsch abgeleitet.", 
+	  		"d" : "Bei beiden Faktoren haben Sie einen Fehler bei einer der Ableitungen gemacht."
+	  	},
+		"correct_answer": "a"
+	},
+	"cquiz_81_2": {
+		"description": "Bilden Sie mithilfe der multivariaten Kettenregel die Ableitung der Funktion $\\frac{\\partial f}{\\partial t}$, Wenden Sie hier die mehrfache Verkettung an. Gegeben sind die folgenden Funktionen:<br><br> $f(\\mathbf{x}) = f(x_1, x_2) = \\cos(x_1)\\sin(x_2)$ <br><br> $x_1(\\mathbf{u}) = x_1(u_1, u_2) = 2u_1^2 + 3u_2^2 - u_2$ <br> $x_2(\\mathbf{u}) = x_2(u_1, u_2) = 2u_1 - 5u_2^3$ <br><br> $u_1(t) = e^{\\frac{t}{2}}$ <br> $u_2(t) = e^{-2t}$",
+		"options": {
+			"a" : "Der erste Faktor wurde falsch abgeleitet.", 
+	 		"b" : "Der zweite Faktor wurde falsch abgeleitet.", 
+	  		"c" : "", 
+	  		"d" : "Der dritte Faktor wurde falsch abgeleitet."
+	  	},
+		"correct_answer": "c"
+	}
+}
