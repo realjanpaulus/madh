@@ -1,4 +1,6 @@
-# MADH: Math for Digital Humanities students
+# <img align="left" width="100" height="30" src="src/logo.png" alt="logo"> &nbsp; Math for Digital Humanities students
+
+
 
 Das **MADH** (= Math for Digital Humanities students) Projekt ist eine Mathe-Tutorialreihe für Studierende der Digital Humanities. Mathe-Kenntnisse in den ausgewählten Bereichen **Lineare Algebra** und **Calculus** sollen aufgefrischt, erweitert und eingegrenzt werden. Es wird empfohlen, zuerst das Tutorial zur "Linearen Algebra" durchzugehen, bevor das Tutorial "Calculus" angegangen wird, da dies ab der zweiten Hälfte auf dem Linearen Algebra Tutorial aufbaut.
 
