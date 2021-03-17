@@ -1,4 +1,4 @@
-<h1><img  src="src/logo.png" alt="logo" width="98" height="24" style="float: left;">&nbsp;&nbsp;Math for Digital Humanities students</h1>
+<h1 style="display: inline;"><img  src="src/logo.png" alt="logo" width="98" height="24" style="float: left; display: inline;">&nbsp;&nbsp;Math for Digital Humanities students</h1>
 
 
 
