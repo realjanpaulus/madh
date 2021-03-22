@@ -58,7 +58,7 @@ def multivariate_function5(x, y):
     return x**2 - y**2
 
 def newton_raphson_example(x):
-    return x**3 - 2*x * 2
+    return x**3 - 2*x + 2
 
 def normal_parabola(a, c, d, x):
     return a*((x-d)**2) + c
@@ -160,7 +160,7 @@ def get_3D_function(name = "multivariate1", space=(-10.0, 10.0), contour_plot=Fa
         plt.show()
 
 
-def get_function(name = "constant", space=(-10.0, 10.0), d1=False, d2=False, d3=False, **kwargs):
+def get_function(name = "constant", space=(-10.0, 10.0), d1=False, d2=False, d3=False, tangent=False, **kwargs):
     """ Computes a function given by name."""
     
     x = np.linspace(space[0],space[1],num=100)
@@ -250,7 +250,7 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, d2=False, d3=
         a = to_int(kwargs["v1"])
         label = f'$f(x) = \\log_{{{a}}} \\: x$'
         y = logarithmic_function(a, x)
-    elif name == "newton_raphson_example" and len(kwargs) > 0:
+    elif name == "newton_raphson_example":
         label = f'$x^3 -2x + 2$'
         y = newton_raphson_example(x)
     elif name == "normal_parabola" and len(kwargs) > 2:
@@ -339,10 +339,12 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, d2=False, d3=
 
         ax.plot(x, y3, label="Dritte Ableitung")
 
-    if name == "newton_raphson_example":
+    if name == "newton_raphson_example" and tangent == True:
+        
         p_x = to_int(kwargs["v1"])
-        p_y = newton_raphson_example(p_x)
+        p_y = np.round(newton_raphson_example(p_x), decimals=4)
         point_label = f"$P({{{p_x}}}|{{{p_y}}})$"
+        ax.scatter(p_x, p_y, color='C1', s=50, label = point_label)
 
         def slope(x):
             return 3*(x**2) - 2
@@ -353,12 +355,10 @@ def get_function(name = "constant", space=(-10.0, 10.0), d1=False, d2=False, d3=
         p_x_range = np.linspace(p_x-1, p_x+1, 100)
         p_x_range = np.linspace(space[0],space[1],num=100)
 
-        ax.scatter(p_x, p_y, color='C1', s=50, label = point_label)
+        
         ax.plot(p_x_range, tangent_line(p_x_range, p_x, p_y), 'C1--', 
                 linewidth = 2, label="Punkttangente")
-
-    
-
+        
         
     plt.legend(fancybox=True, framealpha=1.)
     plt.grid()
@@ -415,7 +415,8 @@ def plt_function(name: Optional[str] = "constant",
     d3: Optional[bool] = False,
     plot_3D_graph: Optional[bool] = False,
     contour_plot: Optional[bool] = False,
-    vector_points: Optional[list] = []) -> None:
+    vector_points: Optional[list] = [],
+    tangent: Optional[bool] = False) -> None:
     """ Plot function by function name. 
 
     Args:
@@ -429,6 +430,7 @@ def plt_function(name: Optional[str] = "constant",
         plot_3D_graph: True for plotting 3D plots.
         contour_plot: True for plotting a contour plot. 'use_3D' must also be True.
         vector_points: List of vector coordinates for 3D plot.
+        tangent: True for plotting a dynamic tangent line.
     Returns:
         None
     """
@@ -505,18 +507,23 @@ def plt_function(name: Optional[str] = "constant",
             name = "trigonometric"
             value_names = ["cos", "sin", "tan"]
         
-        sliders = get_slider(value_names, 
-                             space=space, 
-                             slider_step=slider_step, 
-                             startvalue=startvalue)
-        kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
-        interact(get_function, 
-                 name=fixed(name), 
-                 space=fixed(space), 
-                 d1=fixed(d1), 
-                 d2=fixed(d2), 
-                 d3=fixed(d3), 
-                 **kwargs)
+
+        if tangent == False and name == "newton_raphson_example":
+            get_function(name = name, space = space, tangent = tangent)
+        else:
+            sliders = get_slider(value_names, 
+                                 space=space, 
+                                 slider_step=slider_step, 
+                                 startvalue=startvalue)
+            kwargs = {'v{}'.format(i+1):slider for i, slider in enumerate(sliders)}
+            interact(get_function, 
+                     name=fixed(name), 
+                     space=fixed(space), 
+                     d1=fixed(d1), 
+                     d2=fixed(d2), 
+                     d3=fixed(d3),
+                     tangent=fixed(tangent), 
+                     **kwargs)
     
     elif name in available_3D_functions:
         get_3D_function(name = name, space=space, plot_3D_graph = plot_3D_graph, 

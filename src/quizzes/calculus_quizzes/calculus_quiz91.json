@@ -1,0 +1,42 @@
+{
+	"cquiz_91_1": {
+		"description": "Gegeben ist die Funktion $f(x) = e^{x^2}$. Geben Sie die Taylorreihe im Punkt $x=0$ für die ersten drei Approximationen an, also die Approximationen nullter, erster und zweiter Ordnung.",
+		"options": {
+			"a" : "Sie haben bei der zweiten Approximation einen Fehler gemacht.", 
+	 		"b" : "Sie haben bei der nullten und zweiten Approximation einen Fehler gemacht.", 
+	  		"c" : "Sie haben bei der nullten Approximation einen Fehler gemacht.", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_91_2": {
+		"description": "Gegeben ist die Funktion $f(x) = e^x + x + \\sin(x)$. Geben Sie die Taylorreihe im Punkt $x=0$ für die ersten vier Terme an, die <u>nicht</u> Null ergeben.",
+		"options": {
+			"a" : "In der vierten Ableitung hat sich ein Fehler eingeschlichen.", 
+	 		"b" : "In der zweiten und vierten Ableitung hat sich ein Fehler eingeschlichen.", 
+	  		"c" : "In der zweiten Ableitung hat sich ein Fehler eingeschlichen.", 
+	  		"d" : ""
+	  	},
+		"correct_answer": "d"
+	},
+	"cquiz_91_3": {
+		"description": "Schauen Sie sich Abbildung 1 an, in der eine <b>multivariate Funktion</b> (in blau) und eine Approximation (in orange) geplottet wird. Welche <b>Ordnung</b> hat diese Approximation?",
+		"options": {
+			"a" : "", 
+	 		"b" : "Hat die Approximation eine Steigung?", 
+	  		"c" : "Hat die Approximation eine Parabelform?", 
+	  		"d" : "Es ist eine gültige Approximation."
+	  	},
+		"correct_answer": "a"
+	},
+	"cquiz_91_4": {
+		"description": "Schauen Sie sich Abbildung 2 an, in der eine <b>multivariate Funktion</b> (in blau) und eine Approximation (in orange) geplottet wird. Welche <b>Ordnung</b> hat diese Approximation?",
+		"options": {
+			"a" : "Ist die Approximation flach?", 
+	 		"b" : "Ist die Steigung der Funktion überall gleich groß?", 
+	  		"c" : "", 
+	  		"d" : "Es ist eine gültige Approximation."
+	  	},
+		"correct_answer": "c"
+	}
+}
