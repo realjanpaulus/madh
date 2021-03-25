@@ -20,11 +20,11 @@
 		"correct_answer": "7"	
 	},
 	"cquiz_1_3": {
-		"description": "Welche Farbe kommt dabei heraus, wenn man blau und gelb mischt?",
+		"description": "Welche Farbe kommt dabei heraus, wenn man Blau und Gelb mischt?",
 		"options": {
-			"Blelb": "Bitte den Kindergarten nochmal wiederholen.",
+			"Blelb": "Sie haben die beiden Wörter miteinander vermischt, nicht die Farben.",
 			"Rot": "Nehmen Sie sich bitte die beiden Wasserfarben und probieren Sie es selbst aus.",
-			"Blau mit gelben Punkten": "Wissen Sie was 'mischen' bedeutet?",
+			"Blau mit gelben Punkten": "Wissen Sie, was 'mischen' bedeutet?",
 			"Grün": ""
 		},
 		"correct_answer": "Grün"

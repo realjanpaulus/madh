@@ -27,32 +27,32 @@
 		"correct_answer": "c"
 	},
 	"cquiz_22_4": {
-		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die Parabel schmaler wird?",
+		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die aktuelle Parabel schmaler wird?",
 		"options": {
 			"a > 1" : "", 
-	 		"a > 0" : "", 
-	  		"a > 2" : "",
+	 		"a < -1" : "", 
+	  		"0 > a > -1" : "",
 	  		"1 > a > 0" : ""
 	  	},
 		"correct_answer": "a > 1"
 	},
 	"cquiz_22_5": {
-		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die Parabel breiter wird?",
+		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die aktuelle Parabel breiter wird?",
 		"options": {
 			"a > 1" : "", 
-	 		"a > 0" : "", 
-	  		"a > 2" : "",
+	 		"a < -1" : "", 
+	  		"0 > a > -1" : "",
 	  		"1 > a > 0" : ""
 	  	},
 		"correct_answer": "1 > a > 0"
 	},
 	"cquiz_22_6": {
-		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die Parabel breiter und nach unten geöffnet wird?",
+		"description": "Die Ausgangsparameter sind $a = 1.0, c = 0.0, d = 0.0$. Wie muss $a$ gesetzt werden, damit die aktuelle Parabel breiter und nach unten geöffnet wird?",
 		"options": {
-			"1 > a" : "", 
-	 		"0 > a" : "", 
-	  		"-1 > a" : "",
-	  		"0 > a > -1" : ""
+			"a > 1" : "", 
+	 		"a < -1" : "", 
+	  		"0 > a > -1" : "",
+	  		"1 > a > 0" : ""
 	  	},
 		"correct_answer": "0 > a > -1"
 	},

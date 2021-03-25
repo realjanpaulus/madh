@@ -35,7 +35,7 @@
 			"Exponentialfunktion" : "Der Wasserspiegel würde immer weiter ansteigen.", 
 	 		"Logarithmusfunktion" : "Der Wasserspiegel würde nie zurückgehen.", 
 	  		"Quadratische Funktion" : "Es würde nur einmal bei Beginn der Messungen einen Anstieg des Wasserspiegels geben.", 
-	  		"Sinusfunktion" : "Auch wenn die Periodenlänge der Gezeiten eigentlich 12,44 Stunden ist und sie sich täglich eine Stunde nach hinten verschieben."
+	  		"Sinusfunktion" : "Auch wenn die Periodenlänge der Gezeiten eigentlich 12,44 Stunden ist und sie sich täglich eine Stunde nach hinten verschiebt."
 	  	},
 		"correct_answer": "Sinusfunktion"
 	}

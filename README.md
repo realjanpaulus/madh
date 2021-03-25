@@ -42,18 +42,12 @@ Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben.
 
 ```
 ipywidgets
-typing
 ipython
 numpy
 matplotlib
 mpl_toolkits
+pathlib
 scipy
+typing
 ```
-
-
-## Unterstütze Systeme
-
-* Windows 10
-* MacOS Catalina
-* Manjaro
 
