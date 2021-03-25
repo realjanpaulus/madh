@@ -1,0 +1,22 @@
+{
+	"cquiz_10_1": {
+		"description": "Gegeben ist die Funktion $f(x) = 2x^3 + 2x^2 + 2x$. Berechnen Sie das Newton-Raphson Verfahren für diese Funktion, bis $f(x)$ zwischen 0 und 0.05 liegt. Verwenden Sie als Startwert $x_0 = -1$. Nach welcher Iteration brechen Sie ab?",
+		"options": {
+			"1" : "Der Wert ist noch zu hoch, es wird noch nicht abgebrochen.", 
+	 		"2" : "Der Wert ist noch zu hoch, es wird noch nicht abgebrochen.", 
+	  		"3" : "Der x-Wert ist etwa 0.0095, der y-Wert etwa 0.0193.", 
+	  		"4" : "Bereits eine Iteration vorher war das Abbruchkriterium schon erfüllt."
+	  	},
+		"correct_answer": "3"
+	},
+	"cquiz_10_2": {
+		"description": "Gegeben ist die Funktion $f(x,y) = x^2 + y^2$ und die Werte $x_0 = 0.1$ und $y_0 = 0.1$. Berechnen Sie das Gradient Descent Verfahren für die Lernrate $\\alpha = 2$ und $\\alpha = 0.2$ für die ersten fünf Iterationen. Welche Lernrate kommt näher ans Minimum von $0$ heran?",
+		"options": {
+			"Lernrate von 2" : "Das Verfahren pendelt extrem hin und her.", 
+	 		"Lernrate von 0.2" : "", 
+	  		"Beide Lernraten sind gleich schlecht" : "", 
+	  		"Beide Lernraten sind gleich gut" : ""
+	  	},
+		"correct_answer": "Lernrate von 0.2"
+	}
+}

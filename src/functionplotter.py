@@ -98,7 +98,7 @@ def coordinate_system(ax, neg_dim, pos_dim):
 
 
 def get_3D_function(name = "multivariate1", space=(-10.0, 10.0), contour_plot=False, 
-    plot_3D_graph=True, vector_points=[]):
+    plot_3D_graph=True, vector_points=[], deactivate_legend=False):
     """ Computes a 3D function given by name."""
 
     x = np.linspace(space[0],space[1],num=100)
@@ -154,7 +154,8 @@ def get_3D_function(name = "multivariate1", space=(-10.0, 10.0), contour_plot=Fa
             for idx, p in enumerate(vector_points):
                 ax.quiver(*p, color=colors[idx], label=f"$\\nabla f (p{{{idx+1}}})$")
 
-            plt.legend()
+            if deactivate_legend:
+                plt.legend()
         plt.title(label)
         plt.grid()
         plt.show()
@@ -416,7 +417,8 @@ def plt_function(name: Optional[str] = "constant",
     plot_3D_graph: Optional[bool] = False,
     contour_plot: Optional[bool] = False,
     vector_points: Optional[list] = [],
-    tangent: Optional[bool] = False) -> None:
+    tangent: Optional[bool] = False,
+    deactivate_legend: Optional[bool] = False) -> None:
     """ Plot function by function name. 
 
     Args:
@@ -431,6 +433,7 @@ def plt_function(name: Optional[str] = "constant",
         contour_plot: True for plotting a contour plot. 'use_3D' must also be True.
         vector_points: List of vector coordinates for 3D plot.
         tangent: True for plotting a dynamic tangent line.
+        deactive_legend: Indicates if legend box should be plotted or not.
     Returns:
         None
     """
@@ -526,8 +529,12 @@ def plt_function(name: Optional[str] = "constant",
                      **kwargs)
     
     elif name in available_3D_functions:
-        get_3D_function(name = name, space=space, plot_3D_graph = plot_3D_graph, 
-            contour_plot=contour_plot, vector_points=vector_points)
+        get_3D_function(name = name, 
+                        space=space, 
+                        plot_3D_graph = plot_3D_graph, 
+                        contour_plot=contour_plot, 
+                        vector_points=vector_points,
+                        deactivate_legend=deactivate_legend)
     else:
         print(f"Function '{name}' is unknown.")
 
