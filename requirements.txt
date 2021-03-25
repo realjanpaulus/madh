@@ -1,7 +1,8 @@
 ipywidgets
-typing
 ipython
 numpy
 matplotlib
 mpl_toolkits
+pathlib
 scipy
+typing

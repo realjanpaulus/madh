@@ -1,6 +1,6 @@
 {
 	"cquiz_21_1": {
-		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph A aus Abbildung 1.",
+		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph A aus Abbildung 3.",
 		"options": {
 			"f(x) = 2x + 6" : "Die Steigung wurde leider falsch berechnet.", 
 	 		"f(x) = 3x + 6" : "", 
@@ -10,7 +10,7 @@
 		"correct_answer": "f(x) = 3x + 6"
 	},
 	"cquiz_21_2": {
-		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph B aus Abbildung 2.",
+		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph B aus Abbildung 4.",
 		"options": {
 			"f(x) = 1x - 5" : "Beachten Sie, dass der Graph fällt! Die Steigung muss also negativ sein.", 
 	 		"f(x) = -1x - 5" : "", 
@@ -20,7 +20,7 @@
 		"correct_answer": "f(x) = -1x - 5"
 	},
 	"cquiz_21_3": {
-		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph C aus Abbildung 3.",
+		"description": "Berechnen Sie die lineare Funktionsgleichung für Graph C aus Abbildung 5.",
 		"options": {
 			"f(x) = 3x" : "Haben Sie die Steigung richtig berechnet?", 
 	 		"f(x) = 3x + 1" : "Schauen Sie noch einmal nach, wo der Graph die y-Achse schneidet!", 
@@ -30,7 +30,7 @@
 		"correct_answer": "f(x) = 4x"
 	},
 	"cquiz_21_4": {
-		"description": "Welcher der Graphen in Abbildung 4 wird durch die Funktion $f(x) = -2x - 3$ beschrieben?",
+		"description": "Welcher der Graphen in Abbildung 6 wird durch die Funktion $f(x) = -2x - 3$ beschrieben?",
 		"options": {
 			"Der lilane Graph" : "", 
 	 		"Der orange Graph" : "Berechnen Sie noch einmal die Steigung.", 
@@ -40,7 +40,7 @@
 		"correct_answer": "Der lilane Graph"
 	},
 	"cquiz_21_5": {
-		"description": "Welcher der Graphen in Abbildung 5 wird durch die Funktion $f(x) = 6x + 2$ beschrieben?",
+		"description": "Welcher der Graphen in Abbildung 7 wird durch die Funktion $f(x) = 6x + 2$ beschrieben?",
 		"options": {
 			"Der lilane Graph" : "Haben Sie die Steigung und den y-Achsen-Abschnitt vertauscht?", 
 	 		"Der orange Graph" : "", 
@@ -50,7 +50,7 @@
 		"correct_answer": "Der orange Graph"
 	},
 	"cquiz_21_6": {
-		"description": "Welcher der Graphen in Abbildung 6 wird durch die Funktion $f(x) = 2x$ beschrieben?",
+		"description": "Welcher der Graphen in Abbildung 8 wird durch die Funktion $f(x) = 2x$ beschrieben?",
 		"options": {
 			"Der lilane Graph" : "", 
 	 		"Der orange Graph" : "Berechnen Sie noch einmal die Steigung.", 
