@@ -30,7 +30,7 @@
 		"correct_answer": "d"
 	},
 	"cquiz_53_4": {
-		"description": "Bilden Sie die zweite Ableitung der Funktion $f(x) = 2 \\cdot \\log_3(x)$.",
+		"description": "Bilden Sie die zweite Ableitung der Funktion $f(x) = 2 \\cdot \\log_3(x)$. <u>Tipp</u>: Gucken Sie sich dafür auch die Regel 16 im folgenden Abschnitt an, diese könnte Ihnen helfen.",
 		"options": {
 			"a" : "Beachten Sie die korrekte Anwendung der Faktorregel.", 
 	 		"b" : "Beachten Sie die korrekte Wahl der Vorzeichen und die korrekte Anwendung der Faktorregel.", 
