@@ -2,11 +2,11 @@
 	"cquiz_51_1": {
 		"description": "Bilden Sie die erste Ableitung der Funktion $f(x) = 8x^4 + x^{-2} -3$.",
 		"options": {
-			"a" : "Achten Sie beim Ableiten darauf, dass sie das Vorzeichen von n (= Exponenten von x) nicht ändern.", 
-	 		"b" : "Achten Sie beim Ableiten darauf, dass sie n (= dem Exponenten von x) um 1 verringern und nicht um 1 erhöhen.", 
+			"a" : "Achten Sie beim Ableiten darauf, dass Sie das Vorzeichen von n (= Exponenten von x) nicht ändern.", 
+	 		"b" : "Achten Sie beim Ableiten darauf, dass Sie n (= den Exponenten von x) um 1 verringern und nicht um 1 erhöhen.", 
 	  		"c" : "", 
 	  		"d" : "Konstanen werden beim Ableiten zu 0.",
-	  		"e" : "Achten Sie beim Ableiten darauf, dass sie das Vorzeichen von n (= Exponenten von x) nicht ändern und der Exponent um 1 verringert und nicht vergrößert wird."
+	  		"e" : "Achten Sie beim Ableiten darauf, dass Sie das Vorzeichen von n (= Exponenten von x) nicht ändern und der Exponent um 1 verringert und nicht vergrößert wird."
 	  	},
 		"correct_answer": "c"
 	},
@@ -52,6 +52,4 @@
 	  	},
 		"correct_answer": "a"
 	}
-
-
 }

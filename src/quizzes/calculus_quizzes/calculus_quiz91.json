@@ -20,23 +20,23 @@
 		"correct_answer": "d"
 	},
 	"cquiz_91_3": {
-		"description": "Schauen Sie sich Abbildung 1 an, in der eine <b>multivariate Funktion</b> (in blau) und eine Approximation (in orange) geplottet wird. Welche <b>Ordnung</b> hat diese Approximation?",
+		"description": "Schauen Sie sich Abbildung 1 an, in der eine <b>multivariate Funktion</b> (in Blau) und eine Approximation (in Orange) geplottet wird. Welche <b>Ordnung</b> hat diese Approximation?",
 		"options": {
-			"a" : "", 
-	 		"b" : "Hat die Approximation eine Steigung?", 
-	  		"c" : "Hat die Approximation eine Parabelform?", 
-	  		"d" : "Es ist eine gültige Approximation."
+			"Nullte Ordnung" : "", 
+	 		"Erste Ordnung" : "Hat die Approximation eine Steigung?", 
+	  		"Zweite Ordnung" : "Hat die Approximation eine Parabelform?", 
+	  		"Es ist keine gültige Approximation der Funktion" : "Es ist eine gültige Approximation."
 	  	},
-		"correct_answer": "a"
+		"correct_answer": "Nullte Ordnung"
 	},
 	"cquiz_91_4": {
 		"description": "Schauen Sie sich Abbildung 2 an, in der eine <b>multivariate Funktion</b> (in blau) und eine Approximation (in orange) geplottet wird. Welche <b>Ordnung</b> hat diese Approximation?",
 		"options": {
-			"a" : "Ist die Approximation flach?", 
-	 		"b" : "Ist die Steigung der Funktion überall gleich groß?", 
-	  		"c" : "", 
-	  		"d" : "Es ist eine gültige Approximation."
+			"Nullte Ordnung" : "Ist die Approximation flach?", 
+	 		"Erste Ordnung" : "Ist die Steigung der Funktion überall gleich groß?", 
+	  		"Zweite Ordnung" : "", 
+	  		"Es ist keine gültige Approximation der Funktion" : "Es ist eine gültige Approximation."
 	  	},
-		"correct_answer": "c"
+		"correct_answer": "Zweite Ordnung"
 	}
 }

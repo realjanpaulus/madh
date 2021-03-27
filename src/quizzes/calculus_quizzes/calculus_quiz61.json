@@ -10,7 +10,7 @@
 		"correct_answer": "b"
 	},
 	"cquiz_61_2": {
-		"description": "Bilden Sie die partielle Ableitung zweiter Ordnung $\\frac{\\partial^2 f}{\\partial x}$ der Funktion $f(x,y,z) = e^{2x} \\sin(y) z^2 + \\cos(z) e^x e^y$, jeweils nach $x$.",
+		"description": "Bilden Sie die partielle Ableitung zweiter Ordnung $\\frac{\\partial^2 f}{\\partial x^2}$ der Funktion $f(x,y,z) = e^{2x} \\sin(y) z^2 + \\cos(z) e^x e^y$, jeweils nach $x$.",
 		"options": {
 			"a" : "Sie haben die partielle Ableitung erster Ordnung, nicht zweiter Ordnung berechnet.", 
 	 		"b" : "", 
