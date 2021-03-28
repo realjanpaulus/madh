@@ -8,24 +8,26 @@ from pathlib import Path
 import sys
 from typing import Dict, List, Optional, Tuple, Union
 
-# grandparent path to ensure correct location of files
-path = Path().cwd().parents[1]
+# parent path to ensure correct location of files
+path = Path().cwd().parents[0]
 
 def css_styling():
-	"""Loads css styles."""
-	css_files = dict([(p.name, p) for p in path.rglob("*.css")])
-	styles = open(css_files["custom.css"], "r").read()
-	return HTML(styles)
+    """Loads css styles."""
+    
+    css_files = dict([(p.name, p) for p in path.rglob("*.css")])
+    styles = open(css_files["global_styles.css"], "r").read()
+    styles = "<style>" + styles + "</styles>"
+    return HTML(styles) 
 
 
 
 def hide_code():
-	"""Hide jupyter notebook code cells."""
-	toggle_code_str = """
-	<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show/Hide Code Cell"></form>
-	"""
+    """Hide jupyter notebook code cells."""
+    toggle_code_str = """
+    <form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show/Hide Code Cell"></form>
+    """
 
-	toggle_code_prepare_str = """
+    toggle_code_prepare_str = """
     <script>
     function code_toggle() {
         if ($('div.cell.code_cell.rendered.selected div.input').css('display')!='none'){
@@ -35,14 +37,14 @@ def hide_code():
         }
     }
     </script>"""
-	display(HTML(toggle_code_prepare_str + toggle_code_str))
+    display(HTML(toggle_code_prepare_str + toggle_code_str))
 
 
 
 def to_int(n):
-	""" Checks if float is integer and converts it if necessary."""
-	if n.is_integer():
-		n = int(n)
-	return n
+    """ Checks if float is integer and converts it if necessary."""
+    if n.is_integer():
+        n = int(n)
+    return n
 
 
