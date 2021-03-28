@@ -30,7 +30,9 @@ Für die Nutzung der Bedienungsanleitung wird die Offline-Nutzung empfohlen. Die
 Erforderlich: Python 3.6+
 
 #### Installation mit conda (empfohlen für Anfänger)
-Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben.
+
+
+Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben. Der folgende Schritt muss nicht unbedingt ausgeführt werden, da alle Bibliotheken in `requirements.txt` bereits mit Anaconda vorinstalliert sein sollten, außer es wurden starke Änderungen wie das Deinstallieren von Bibliotheken durchgeführt.
 
 `conda install -r requirements.txt`
 
