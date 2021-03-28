@@ -40,9 +40,12 @@ Diese Option wird für Anfänger empfohlen, die **Anaconda** installiert haben.
 
 ## Requirements
 
+Alle hier aufgeführten Bibliotheken sind bei **Anaconda** standardmäßig vorinstalliert.
+
 ```
 ipywidgets
 ipython
+jupyter
 numpy
 matplotlib
 pathlib
