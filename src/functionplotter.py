@@ -538,10 +538,3 @@ def plt_function(name: Optional[str] = "constant",
     else:
         print(f"Function '{name}' is unknown.")
 
-
-
-
-
-
-
-

@@ -1,6 +1,4 @@
-<style>
-
-/* special fields*/
+/* special fields */
 
 
 /* light blue */ 
@@ -195,7 +193,7 @@ th, td {
     color: black !important;
 }
 
-/* todo?: #centertable table hinzufügen?*/
+
 
 #centertable td
 {
@@ -208,6 +206,3 @@ th, td {
     text-align: center; 
     vertical-align: middle;
 }
-
-
- </style>

@@ -45,9 +45,7 @@ ipywidgets
 ipython
 numpy
 matplotlib
-mpl_toolkits
 pathlib
 scipy
-typing
 ```
 
