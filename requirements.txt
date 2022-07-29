@@ -1,5 +1,6 @@
 ipywidgets
 ipython
+jupyter
 numpy
 matplotlib
 pathlib
